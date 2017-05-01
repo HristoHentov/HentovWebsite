@@ -1,0 +1,17 @@
+﻿@model HentovWebsite.Models.View.Blog.PostCollectionViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Blog - Hentov.NET</h2>
+
+@foreach (var post in Model.Posts)
+{
+
+    <h3>@post.Title</h3>
+    <h4>@post.AuthorName</h4>
+    <p>@post.Content</p>
+    <h5>@post.DatePosted - Comments: @post.CommentsCount</h5>
+    <br/>
+}

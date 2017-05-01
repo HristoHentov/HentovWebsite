@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Hentov.NET</title>
+    <meta name="description" content="Hristo Hentov's personal website.'">
+    <meta name="keywords" content="computer, graphics, web, development, 3d, animation, modelling, programming, design, motion">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/style.css">
+
+</head>
+<body>
+    <!--header-->
+    <header class="main-header" id="header">
+        <div class="bg-color">
+            <!--nav-->
+            <nav class="nav navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="fa fa-bars"></span>
+                            </button>
+                            @Html.ActionLink("Hentov.NET", "Index", "Home", null, new { @class = "navbar-brand" })
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#header">Home</a></li>
+                                <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                                <!--<li><li>@Html.ActionLink("Portfolio", "Index", "Portfolio")</li>
+                                <li>@Html.ActionLink("Tutorials", "Index", "Tutorials")</li>
+                                <li>@Html.ActionLink("Products", "Index", "Products")</li>-->
+                                <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                                <li>@Html.ActionLink("About", "Index", "About")</li>
+                            </ul>
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!--/ nav-->
+            @if (ViewBag.Title == "Home Page")
+            {
+                @Html.Partial("../Home/_Landing")
+            }
+        </div>
+    </header>
+    <!--/ header-->
+
+
+    @RenderBody()
+    <footer class="" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 footer-copyright">
+                    © Hristo Hentov - @DateTime.Now.Year
+                </div>
+                <div class="col-sm-5 footer-social">
+                    <div class="pull-right hidden-xs hidden-sm">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/theme/jquery.min.js"></script>
+    <script src="~/Scripts/theme/jquery.easing.min.js"></script>
+    <script src="~/Scripts/theme/bootstrap.min.js"></script>
+    <script src="~/Scripts/theme/wow.js"></script>
+    <script src="~/Scripts/theme/custom.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
