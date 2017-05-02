@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Binding\Blog\CommentBindingModel.cs" />
     <Compile Include="Binding\Blog\AddPostBindingModel.cs" />
+    <Compile Include="Binding\Tutorials\AddTutorialBindingModel.cs" />
     <Compile Include="Entity\Blog\CommentEntityModel.cs" />
     <Compile Include="Entity\Blog\PostEntityModel.cs" />
     <Compile Include="Entity\Blog\TagEntityModel.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="View\ManageLogin\ResetPasswordViewModel.cs" />
     <Compile Include="View\ManageLogin\SendCodeViewModel.cs" />
     <Compile Include="View\ManageLogin\VerifyCodeViewModel.cs" />
+    <Compile Include="View\Tutorials\TutorialCollectionViewModel.cs" />
     <Compile Include="View\Tutorials\TutorialDetailsViewModel.cs" />
     <Compile Include="View\Tutorials\TutorialViewModel.cs" />
   </ItemGroup>

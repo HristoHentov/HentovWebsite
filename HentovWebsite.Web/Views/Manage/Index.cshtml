@@ -82,7 +82,7 @@
         </dd>
     </dl>
 </div>
-<div style="margin:auto">
+<div style="margin: auto">
     @using (Html.BeginForm("AddPost", "Blog", FormMethod.Post))
     {
         <div class="form-group">
@@ -100,6 +100,29 @@
 
         <button type="submit" class="btn btn-default">Add Post</button>
     }
-        
-    
 </div>
+<br/>
+<div style="margin: auto">
+    @using (Html.BeginForm("AddTutorial", "Tutorials", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="Title">Name</label>
+            <input type="text" class="form-control" id="Title" name="Title">
+        </div>
+        <div class="form-group">
+            <label for="Content">Description</label>
+            <input type="text" class="form-control" id="Content" name="Description">
+        </div>
+        <div class="form-group">
+            <label for="Tags">VideoUrl</label>
+            <input type="text" class="form-control" id="Tags" name="VideoUrl">
+        </div>
+        <div class="form-group">
+            <label for="Tags">Length</label>
+            <input type="text" class="form-control" id="Tags" name="Length">
+        </div>
+
+        <button type="submit" class="btn btn-default">Add Tutorial</button>
+    }
+</div>
+

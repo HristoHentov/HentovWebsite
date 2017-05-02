@@ -7,8 +7,11 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
 using HentovWebsite.Models.Binding.Blog;
+using HentovWebsite.Models.Binding.Tutorials;
 using HentovWebsite.Models.Entity.Blog;
+using HentovWebsite.Models.Entity.Tutorials;
 using HentovWebsite.Models.View.Blog;
+using HentovWebsite.Models.View.Tutorials;
 
 namespace HentovWebsite.Web
 {
@@ -28,8 +31,10 @@ namespace HentovWebsite.Web
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<AddPostBindingModel, PostEntityModel>();
+                cfg.CreateMap<AddTutorialBindingModel, TutorialEntityModel>();
                 cfg.CreateMap<PostEntityModel, PostViewModel>()
                     .ForMember(dest => dest.CommentsCount, o => o.MapFrom(x => x.Comments.Count));
+                cfg.CreateMap<TutorialEntityModel, TutorialViewModel>();
             });
         }
     }

@@ -10,7 +10,7 @@ namespace HentovWebsite.Models.Entity.Blog
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(maximumLength:30,MinimumLength = 4)]
+        [StringLength(maximumLength: 30, MinimumLength = 4)]
         public string Title { get; set; }
         [Required]
         [StringLength(maximumLength: 12000, MinimumLength = 4)]

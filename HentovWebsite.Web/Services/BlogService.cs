@@ -38,5 +38,11 @@ namespace HentovWebsite.Web.Services
 
             return postsResult;
         }
+
+        public PostViewModel GetPostById(int id)
+        {
+            var post = this.Context.Posts.FirstOrDefault(p => p.Id == id);
+            return Mapper.Map<PostEntityModel, PostViewModel>(post);
+        }
     }
 }

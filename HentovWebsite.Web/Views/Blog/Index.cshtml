@@ -13,5 +13,6 @@
     <h4>@post.AuthorName</h4>
     <p>@post.Content</p>
     <h5>@post.DatePosted - Comments: @post.CommentsCount</h5>
+    @Html.ActionLink("Read more","Post","Blog", new {id = @post.Id}, null)
     <br/>
 }

@@ -1,0 +1,14 @@
+﻿@model List<HentovWebsite.Models.View.Tutorials.TutorialViewModel>
+
+@{
+    ViewBag.Title = "Tutorials - Hentov.NET";
+}
+
+@foreach (var tutorial in @Model)
+{
+    <h4>@tutorial.Name</h4>
+    <img src="@tutorial.Thumbnail"/>
+    <h4>@tutorial.Description</h4>
+    <h4>@tutorial.Length</h4>
+
+}

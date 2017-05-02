@@ -22,9 +22,15 @@ namespace HentovWebsite.Web.Controllers
         [HttpPost]
         public ActionResult AddPost(AddPostBindingModel post)
         {
-            
             this.service.AddPost(post, User.Identity.Name);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Post(int id)
+        {
+            var post = this.service.GetPostById(id);
+            return View(post);
         }
     }
 }

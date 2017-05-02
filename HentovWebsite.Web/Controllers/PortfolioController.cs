@@ -2,9 +2,9 @@
 
 namespace HentovWebsite.Web.Controllers
 {
-    public class ContactController : Controller
+    public class PortfolioController : Controller
     {
-        // GET: Contact
+        // GET: Portfolio
         public ActionResult Index()
         {
             return View();
