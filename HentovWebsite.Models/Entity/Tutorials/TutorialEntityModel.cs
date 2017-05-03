@@ -14,7 +14,7 @@ namespace HentovWebsite.Models.Entity.Tutorials
         }
         public int Id { get; set; }
 
-        public byte[] Thumbnail { get; set; }
+        public string Thumbnail { get; set; }
 
       [Required]
       [StringLength(maximumLength: 30, MinimumLength = 4)]

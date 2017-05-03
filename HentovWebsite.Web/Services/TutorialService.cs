@@ -29,5 +29,12 @@ namespace HentovWebsite.Web.Services
                 <IEnumerable<TutorialEntityModel>, IEnumerable<TutorialViewModel>>
                 (this.context.Tutorials.Entities);
         }
+
+        public TutorialViewModel GetTutorialById(int id)
+        {
+            return Mapper.Map
+                <TutorialEntityModel, TutorialViewModel>
+                (this.context.Tutorials.FirstOrDefault(t => t.Id == id));
+        }
     }
 }

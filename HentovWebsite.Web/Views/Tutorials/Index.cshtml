@@ -2,13 +2,33 @@
 
 @{
     ViewBag.Title = "Tutorials - Hentov.NET";
+    ViewBag.PlayButton = "/Content/img/play-button.png";
 }
 
 @foreach (var tutorial in @Model)
 {
-    <h4>@tutorial.Name</h4>
-    <img src="@tutorial.Thumbnail"/>
-    <h4>@tutorial.Description</h4>
-    <h4>@tutorial.Length</h4>
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="card hovercard">
+                <img src="@tutorial.Thumbnail" alt="Tutorial thumbnail" />
+                <div class="avatar">
+                    <a href="@tutorial.VideoUrl">
+                        <img src="@ViewBag.PlayButton" alt="Play Button" />
+                    </a>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        @tutorial.Title
+                    </div>
+                    <div class="desc">@tutorial.Description</div>
+                </div>
+                <div class="bottom">
+                    <input class="btn btn-default" type="button" value="See More" onclick="location.href='@Url.Action("Tutorial", "Tutorials", new {id = @tutorial.Id})'" />
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 }
