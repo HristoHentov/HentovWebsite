@@ -60,6 +60,7 @@
     <Compile Include="Binding\Blog\CommentBindingModel.cs" />
     <Compile Include="Binding\Blog\AddPostBindingModel.cs" />
     <Compile Include="Binding\Portfolio\AddProjectBindingModel.cs" />
+    <Compile Include="Binding\Portfolio\EditProjectBindingModel.cs" />
     <Compile Include="Binding\Tutorials\AddTutorialBindingModel.cs" />
     <Compile Include="Binding\Tutorials\EditTutorialBindingModel.cs" />
     <Compile Include="Entity\Blog\CommentEntityModel.cs" />

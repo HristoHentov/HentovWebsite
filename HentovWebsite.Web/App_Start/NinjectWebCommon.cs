@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using HentovWebsite.Data;
 using HentovWebsite.Data.Contracts;
+using HentovWebsite.Models.Entity.Blog;
+using HentovWebsite.Models.View.Blog;
 using HentovWebsite.Web.Services;
 using HentovWebsite.Web.Services.Contracts;
 
@@ -71,6 +74,7 @@ namespace HentovWebsite.Web.App_Start
             kernel.Bind<ITutorialsService>().To<TutorialService>();
             kernel.Bind<IPortfolioService>().To<PortfolioService>();
             kernel.Bind<IAccountService>().To<AccountService>();
+            kernel.Bind<ICollection<TagEntityModel>>().To<List<TagEntityModel>>();
         }        
     }
 }

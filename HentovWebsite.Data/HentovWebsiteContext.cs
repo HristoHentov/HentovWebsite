@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Runtime.CompilerServices;
 using HentovWebsite.Models.Entity.Blog;
 using HentovWebsite.Models.Entity.Portfolio;
 using HentovWebsite.Models.Entity.Tutorials;
@@ -27,12 +26,9 @@ namespace HentovWebsite.Data
 
         public DbSet<ProjectEntityModel> Projects { get; set; }
 
-        
-       
 
         public static HentovWebsiteContext Create()
-        {
-            
+        {            
             return new HentovWebsiteContext();
         }
     }

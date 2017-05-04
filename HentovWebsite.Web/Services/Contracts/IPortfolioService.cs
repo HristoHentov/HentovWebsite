@@ -9,5 +9,7 @@ namespace HentovWebsite.Web.Services.Contracts
     {
         void AddProject(AddProjectBindingModel project);
         IEnumerable<ProjectViewModel> GetProjects(ProjectTypes type);
+        void EditProject(EditProjectBindingModel project);
+        void DeleteProject(int id);
     }
 }
