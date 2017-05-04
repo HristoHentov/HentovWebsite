@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using HentovWebsite.Models.Entity.Blog;
+using HentovWebsite.Models.Entity.Portfolio;
 using HentovWebsite.Models.Entity.Tutorials;
 using HentovWebsite.Models.Entity.Users;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -22,6 +23,8 @@ namespace HentovWebsite.Data
         public DbSet<WebsiteUser> WebsiteUsers { get; set; }
 
         public DbSet<TagEntityModel> Tags { get; set; }
+
+        public DbSet<ProjectEntityModel> Projects { get; set; }
 
         public static HentovWebsiteContext Create()
         {

@@ -1,9 +1,16 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HentovWebsite.Models.View.ManageLogin
 {
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(16, MinimumLength = 3, ErrorMessage = "Username must be 3-16 symbols long and not contain any special characters.")]
+        [Display(Name = "Username")]
+        [NotMapped]
+        public string Username { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

@@ -1,5 +1,6 @@
 ﻿using HentovWebsite.Data.Contracts;
 using HentovWebsite.Models.Entity.Blog;
+using HentovWebsite.Models.Entity.Portfolio;
 using HentovWebsite.Models.Entity.Tutorials;
 using HentovWebsite.Models.Entity.Users;
 
@@ -17,6 +18,8 @@ namespace HentovWebsite.Data.Contracts
         IRepository<WebsiteUser> WebsiteUsers { get; }
 
         IRepository<TagEntityModel> Tags { get; }
+
+        IRepository<ProjectEntityModel> Projects { get; }
         int SaveChanges();
     }
 }

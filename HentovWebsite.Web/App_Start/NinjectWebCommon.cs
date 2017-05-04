@@ -69,6 +69,8 @@ namespace HentovWebsite.Web.App_Start
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IBlogService>().To<BlogService>();
             kernel.Bind<ITutorialsService>().To<TutorialService>();
+            kernel.Bind<IPortfolioService>().To<PortfolioService>();
+            kernel.Bind<IAccountService>().To<AccountService>();
         }        
     }
 }

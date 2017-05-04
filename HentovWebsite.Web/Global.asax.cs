@@ -7,10 +7,14 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
 using HentovWebsite.Models.Binding.Blog;
+using HentovWebsite.Models.Binding.Portfolio;
 using HentovWebsite.Models.Binding.Tutorials;
 using HentovWebsite.Models.Entity.Blog;
+using HentovWebsite.Models.Entity.Portfolio;
 using HentovWebsite.Models.Entity.Tutorials;
+using HentovWebsite.Models.Enums;
 using HentovWebsite.Models.View.Blog;
+using HentovWebsite.Models.View.Portfolio;
 using HentovWebsite.Models.View.Tutorials;
 using HentovWebsite.Web.Misc;
 
@@ -41,6 +45,11 @@ namespace HentovWebsite.Web
                     .ForMember(dest => dest.CommentsCount, o => o.MapFrom(x => x.Comments.Count));
 
                 cfg.CreateMap<TutorialEntityModel, TutorialViewModel>();
+
+                cfg.CreateMap<AddProjectBindingModel, ProjectEntityModel>()
+                    .ForMember(dest => dest.ProjectType, x => x.NullSubstitute(ProjectTypes.Development));
+
+                cfg.CreateMap<ProjectEntityModel, ProjectViewModel>();
             });
         }
     }

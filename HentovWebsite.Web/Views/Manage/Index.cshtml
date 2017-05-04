@@ -1,4 +1,5 @@
-﻿@model HentovWebsite.Models.View.ManageAccount.IndexViewModel
+﻿@using HentovWebsite.Models.Enums
+@model HentovWebsite.Models.View.ManageAccount.IndexViewModel
 @{
     ViewBag.Title = "Manage";
 }
@@ -82,47 +83,16 @@
         </dd>
     </dl>
 </div>
-<div style="margin: auto">
-    @using (Html.BeginForm("AddPost", "Blog", FormMethod.Post))
-    {
-        <div class="form-group">
-            <label for="Title">Title</label>
-            <input type="text" class="form-control" id="Title" name="Title">
-        </div>
-        <div class="form-group">
-            <label for="Content">Description</label>
-            <input type="text" class="form-control" id="Content" name="Content">
-        </div>
-        <div class="form-group">
-            <label for="Tags">Tags</label>
-            <input type="text" class="form-control" id="Tags" name="Tags">
-        </div>
 
-        <button type="submit" class="btn btn-default">Add Post</button>
-    }
-</div>
-<br/>
-<div style="margin: auto">
-    @using (Html.BeginForm("AddTutorial", "Tutorials", FormMethod.Post))
-    {
-        <div class="form-group">
-            <label for="Title">Title</label>
-            <input type="text" class="form-control" id="Title" name="Title">
-        </div>
-        <div class="form-group">
-            <label for="Content">Description</label>
-            <input type="text" class="form-control" id="Content" name="Description">
-        </div>
-        <div class="form-group">
-            <label for="Tags">VideoUrl</label>
-            <input type="text" class="form-control" id="Tags" name="VideoUrl">
-        </div>
-        <div class="form-group">
-            <label for="Tags">Length</label>
-            <input type="text" class="form-control" id="Tags" name="Length">
-        </div>
+@if (this.User.IsInRole(UserRoles.Admin.ToString()))
+{
+    @Html.Partial("_AdminSection")
+}
+else
+{
+  @Html.Partial("_UserSection")
+}
 
-        <button type="submit" class="btn btn-default">Add Tutorial</button>
-    }
-</div>
+
+
 

@@ -18,6 +18,12 @@ namespace HentovWebsite.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "404-PageNotFound",
+                url: "{*url}",
+                defaults: new { controller = "ErrorController", action = "NotFound" }
+             );
         }
     }
 }
