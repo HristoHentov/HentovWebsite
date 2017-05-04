@@ -24,7 +24,13 @@
                     <div class="desc">@tutorial.Description</div>
                 </div>
                 <div class="bottom">
-                    <input class="btn btn-default" type="button" value="See More" onclick="location.href='@Url.Action("Tutorial", "Tutorials", new {id = @tutorial.Id})'" />
+                    <input class="btn btn-default" type="button" value="Edit" onclick="location.href = '@Url.Action("Edit", "Tutorials", tutorial)'"/>
+                </div>
+                <div class="bottom">
+                    <input class="btn btn-default" type="button" value="See More" onclick="location.href ='@Url.Action("Tutorial", "Tutorials", new {id = @tutorial.Id})'"/>
+                </div>
+                <div class="bottom">
+                    <input class="btn btn-default" type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Tutorials", tutorial)'" />
                 </div>
             </div>
 

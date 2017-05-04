@@ -36,5 +36,21 @@ namespace HentovWebsite.Web.Services
                 <TutorialEntityModel, TutorialViewModel>
                 (this.context.Tutorials.FirstOrDefault(t => t.Id == id));
         }
+
+        public void EditTutorial(EditTutorialBindingModel tutorial)
+        {
+            var tutorialToEdit = this.context.Tutorials.Find(tutorial.Id);
+            tutorialToEdit.Title = tutorial.Title;
+            tutorialToEdit.Description = tutorial.Description;
+            tutorialToEdit.VideoUrl = tutorial.VideoUrl;
+
+            this.context.SaveChanges();
+        }
+
+        public void DeleteTutorial(int id)
+        {
+            this.context.Tutorials.Remove(id);
+            this.context.SaveChanges();
+        }
     }
 }

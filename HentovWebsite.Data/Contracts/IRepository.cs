@@ -10,19 +10,21 @@ namespace HentovWebsite.Data.Contracts
 
         void Add(T entity);
 
-        void AddRange(IEnumerable<T> entities);
-
         T FirstOrDefault();
 
         T FirstOrDefault(Expression<Func<T, bool>> expression);
 
         IEnumerable<T> Where(Expression<Func<T, bool>> expression);
 
+        bool Any();
+
         bool Any(Expression<Func<T, bool>> expression);
 
         bool Contains(Expression<Func<T, bool>> expression);
 
         T Find(int id);
+
+        T Find(string id);
 
         int Count();
 
@@ -31,7 +33,5 @@ namespace HentovWebsite.Data.Contracts
         void Remove(T entity);
 
         void Remove(int id);
-
-        void RemoveRange(IEnumerable<T> entities);
     }
 }

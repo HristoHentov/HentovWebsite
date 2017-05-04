@@ -17,6 +17,7 @@ namespace HentovWebsite.Data
         private IRepository<WebsiteUser> websiteUsers;
         private IRepository<TagEntityModel> tags;
         private IRepository<ProjectEntityModel> projects;
+        private IRepository<ApplicationUser> users;
 
         public UnitOfWork()
         {
@@ -35,6 +36,8 @@ namespace HentovWebsite.Data
             this.tags ?? (this.tags = new Repository<TagEntityModel>(this.context.Tags));
         public IRepository<ProjectEntityModel> Projects =>
             this.projects ?? (this.projects = new Repository<ProjectEntityModel>(this.context.Projects));
+        public IRepository<ApplicationUser> Users =>
+            this.users ?? (this.users = new Repository<ApplicationUser>(this.context.Users));
 
         public int SaveChanges()
         {

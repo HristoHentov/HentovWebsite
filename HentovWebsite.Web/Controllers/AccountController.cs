@@ -165,6 +165,7 @@ namespace HentovWebsite.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 var websiteUserResult = service.RegisterWebsiteUser(websiteUser);
 
+                service.SetUserRole(user, UserManager);
                 UserManager.AddToRole(user.Id, UserRoles.WebsiteUser.ToString());
                 if (result.Succeeded && websiteUserResult)
                 {

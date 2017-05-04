@@ -8,5 +8,7 @@ namespace HentovWebsite.Web.Services.Contracts
         void AddPost(AddPostBindingModel post, string name);
         PostCollectionViewModel GetBlogPosts();
         PostViewModel GetPostById(int id);
+        void UpdatePost(EditPostBindingModel model);
+        void DeletePost(int postId);
     }
 }

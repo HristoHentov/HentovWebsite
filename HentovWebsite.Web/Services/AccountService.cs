@@ -2,8 +2,10 @@
 using System.CodeDom;
 using HentovWebsite.Data.Contracts;
 using HentovWebsite.Models.Entity.Users;
+using HentovWebsite.Models.Enums;
 using HentovWebsite.Models.View.ManageLogin;
 using HentovWebsite.Web.Services.Contracts;
+using Microsoft.AspNet.Identity;
 
 namespace HentovWebsite.Web.Services
 {
@@ -30,8 +32,10 @@ namespace HentovWebsite.Web.Services
         {
             try
             {
-                this.context.WebsiteUsers.Add(new WebsiteUser {Name = websiteUser.Name, IdentityUser = websiteUser.IdentityUser});
-                //this.context.SaveChanges();
+                var id = websiteUser.IdentityUser.Id;
+                var identityUser = this.context.Users.Find(id);
+                this.context.WebsiteUsers.Add(new WebsiteUser {Name = websiteUser.Name, IdentityUser = identityUser});
+                this.context.SaveChanges();
                 return true;
             }
             catch (Exception e)
@@ -39,6 +43,14 @@ namespace HentovWebsite.Web.Services
                 throw new Exception(e.Message);
             }
 
+        }
+
+        public void SetUserRole(ApplicationUser user, ApplicationUserManager userManager)
+        {
+            if (this.context.Users.Any())
+                userManager.AddToRole(user.Id, UserRoles.Admin.ToString());
+            else
+                userManager.AddToRole(user.Id, UserRoles.WebsiteUser.ToString());
         }
     }
 }

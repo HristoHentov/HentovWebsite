@@ -7,5 +7,6 @@ namespace HentovWebsite.Web.Services.Contracts
     {
         WebsiteUser CreateWebsiteUser(ApplicationUser model);
         bool RegisterWebsiteUser(WebsiteUser websiteUser);
+        void SetUserRole(ApplicationUser user, ApplicationUserManager userManager);
     }
 }

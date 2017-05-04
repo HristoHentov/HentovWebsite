@@ -10,9 +10,9 @@ namespace HentovWebsite.Data.Repositories
     public class Repository<T> : IRepository<T>
         where T : class 
     {
-        private readonly DbSet<T> set;
+        private readonly IDbSet<T> set;
 
-        public Repository(DbSet<T> set)
+        public Repository(IDbSet<T> set)
         {
             this.set = set;
         }
@@ -24,19 +24,24 @@ namespace HentovWebsite.Data.Repositories
             this.set.Add(entity);
         }
 
-        public void AddRange(IEnumerable<T> entities)
-        {
-            this.set.AddRange(entities);
-        }
-
         public bool Any(Expression<Func<T, bool>> expression)
         {
             return this.set.Any(expression);
         }
 
+        public bool Any()
+        {
+            return this.set.Any();
+        }
+
         public bool Contains(Expression<Func<T, bool>> expression)
         {
             return this.set.Any(expression);
+        }
+
+        public T Find(string id)
+        {
+            return this.set.Find(id);
         }
 
         public int Count()
@@ -72,11 +77,6 @@ namespace HentovWebsite.Data.Repositories
         public void Remove(T entity)
         {
             this.set.Remove(entity);
-        }
-
-        public void RemoveRange(IEnumerable<T> entities)
-        {
-            this.set.RemoveRange(entities);
         }
 
         public IEnumerable<T> Where(Expression<Func<T, bool>> expression)

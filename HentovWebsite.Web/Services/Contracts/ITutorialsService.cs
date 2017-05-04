@@ -9,5 +9,7 @@ namespace HentovWebsite.Web.Services.Contracts
         void AddTutorial(AddTutorialBindingModel tutorial);
         IEnumerable<TutorialViewModel> GetAllTutorials();
         TutorialViewModel GetTutorialById(int id);
+        void EditTutorial(EditTutorialBindingModel tutorial);
+        void DeleteTutorial(int id);
     }
 }

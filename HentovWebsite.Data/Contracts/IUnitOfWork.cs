@@ -20,6 +20,8 @@ namespace HentovWebsite.Data.Contracts
         IRepository<TagEntityModel> Tags { get; }
 
         IRepository<ProjectEntityModel> Projects { get; }
+
+        IRepository<ApplicationUser> Users { get; }
         int SaveChanges();
     }
 }
