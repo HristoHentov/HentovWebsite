@@ -16,7 +16,7 @@ namespace HentovWebsite.Models.Entity.Blog
         [StringLength(maximumLength: 12000, MinimumLength = 4)]
         public string Content { get; set; }
         [Required]
-        public string AuthorName { get; set; } ///TODO: Make this an actual user.
+        public string AuthorName { get; set; }
 
         public DateTime? DatePosted { get; set; }
 

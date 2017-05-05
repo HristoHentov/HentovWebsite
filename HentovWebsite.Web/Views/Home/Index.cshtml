@@ -1,19 +1,18 @@
-﻿@{
+﻿@using HentovWebsite.Web.Helpers
+@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_HeaderLayout.cshtml";
 }
-
     <section id="cta-1">
         <div class="container">
             <div class="row">
                 <div class="cta-info text-center">
-                    <h3><span class="dec-tec">“</span>Insert generic wise quote from a deep-sounding guy here.<span class="dec-tec">”</span> -Brian Reed</h3>
+                    <h3><span class="dec-tec">“</span>Insert generic wise quote from a deep-sounding guy here.<span class="dec-tec">”</span> - Some Wise Guy</h3>
                 </div>
             </div>
         </div>
     </section>
-    <!---->
-    <!---->
+
     <section id="feature" class="section-padding">
         <div class="container">
             <div class="row">
@@ -21,64 +20,16 @@
                     <div class="section-title">
                         <h2 class="head-title">Services</h2>
                         <hr class="botm-line">
-                        <p class="sec-para">I do quite a lot of stuff, so here is a small list that highlight the more important ones :)</p>
+                        <p class="sec-para">I do quite a lot of stuff, so here is a small list that highlights the more important ones :)</p>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="col-md-6 wow fadeInRight delay-02s">
-                        <div class="icon">
-                            <i class="fa fa-paint-brush"></i>
-                        </div>
-                        <div class="icon-text">
-                            <h3 class="txt-tl">Easy to Learn and Design</h3>
-                            <p class="txt-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula felis euismod semper. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 wow fadeInRight delay-02s">
-                        <div class="icon">
-                            <i class="fa fa-cogs"></i>
-                        </div>
-                        <div class="icon-text">
-                            <h3 class="txt-tl">Bootstrap 3.3.2</h3>
-                            <p class="txt-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula felis euismod semper. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 wow fadeInRight delay-04s">
-                        <div class="icon">
-                            <i class="fa fa-mobile"></i>
-                        </div>
-                        <div class="icon-text">
-                            <h3 class="txt-tl">Responsive Design</h3>
-                            <p class="txt-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula felis euismod semper. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 wow fadeInRight delay-04s">
-                        <div class="icon">
-                            <i class="fa fa-desktop"></i>
-                        </div>
-                        <div class="icon-text">
-                            <h3 class="txt-tl">No Coding, No Shortcodes</h3>
-                            <p class="txt-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula felis euismod semper. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 wow fadeInRight delay-06s">
-                        <div class="icon">
-                            <i class="fa fa-lightbulb-o"></i>
-                        </div>
-                        <div class="icon-text">
-                            <h3 class="txt-tl">High Coversion</h3>
-                            <p class="txt-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula felis euismod semper. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 wow fadeInRight delay-06s">
-                        <div class="icon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                        <div class="icon-text">
-                            <h3 class="txt-tl">Save Tons of Time</h3>
-                            <p class="txt-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula felis euismod semper. </p>
-                        </div>
-                    </div>
+                    @Html.ServiceDescription("fa fa-paint-brush", "CG Art", "Althought not my main speciality I do quite a lot of 2D/Print design. Posters, frames, t-shirts...you name it.")
+                    @Html.ServiceDescription("fa fa-cogs", "CG Art", "Every now and then I try to puzzle around with difficult taks and try to look for elegant ways to solve them.")
+                    @Html.ServiceDescription("fa fa-mobile", "Mobile apps", "More often than not I give mobile apps a shot. I'm mainly interested in time-management apps as these are great time-savers.")
+                    @Html.ServiceDescription("fa fa-desktop", "Web&Desktop Development", "Mainly, I develop apps for desktop/web use. I do most of them in C++/C#. This is my main development area of focus.")
+                    @Html.ServiceDescription("fa fa-lightbulb-o", "Creative Ideas", "I always try to come up with new and creative approaches when designing stuff.I often mix stuff that doesn't make sense.")
+                    @Html.ServiceDescription("fa fa-clock-o", "On-point deadlines", "If there is something I absolutely guarntee - its deadlines. I ALWAYS make sure that I follow the deadlines I set.")
                 </div>
             </div>
         </div>
@@ -89,63 +40,39 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="cta-txt">
-                        <h3>Subscribe For Updates</h3>
-                        <p>Join our 1000+ subscribers and get access to the latest tools, freebies, product announcements and much more!</p>
+                        <h3>Want to get in touch?</h3>
+                        <p>Business? Partnership? Questions. I try to respond as quickly as I can, so feel free to contact me with whatever you have in mind.</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
-                    <a href="#" class="btn btn-submit">Subscribe Now</a>
+                    <a href=@Url.Action("Index", "About") class="btn btn-submit">Contact me</a>
                 </div>
             </div>
         </div>
     </section>
-    <!---->
-    <!---->
+
     <section class="section-padding wow fadeInUp delay-02s" id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-12">
                     <div class="section-title">
-                        <h2 class="head-title">Portfolio</h2>
+                        <div>
+                            <a href=@Url.Action("Index","Portfolio")>
+                                <h2 class="head-title">Portfolio</h2>
+                            </a>
+                        </div>
                         <hr class="botm-line">
-                        <p class="sec-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                        <p class="sec-para">If you want to know more about me, you can check out some of the project I've worked on. Head to the portfoli page for that.</p>
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-12">
-                    <div class="col-md-4 col-sm-6 padding-right-zero">
-                        <div class="portfolio-box design">
-                            <img src="~/Content/img/port01.jpg" alt="" class="img-responsive">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 padding-right-zero">
-                        <div class="portfolio-box design">
-                            <img src="~/Content/img/port02.jpg" alt="" class="img-responsive">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 padding-right-zero">
-                        <div class="portfolio-box design">
-                            <img src="~/Content/img/port03.jpg" alt="" class="img-responsive">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 padding-right-zero">
-                        <div class="portfolio-box design">
-                            <img src="~/Content/img/port04.jpg" alt="" class="img-responsive">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 padding-right-zero">
-                        <div class="portfolio-box design">
-                            <img src="~/Content/img/port05.jpg" alt="" class="img-responsive">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 padding-right-zero">
-                        <div class="portfolio-box design">
-                            <img src="~/Content/img/port06.jpg" alt="" class="img-responsive">
-                        </div>
-                    </div>
+                    @Html.PortfolioImage("/Content/img/port01.jpg", "PortfolioImage01")
+                    @Html.PortfolioImage("/Content/img/port02.jpg", "PortfolioImage02")
+                    @Html.PortfolioImage("/Content/img/port03.jpg", "PortfolioImage03")
+                    @Html.PortfolioImage("/Content/img/port04.jpg", "PortfolioImage04")
+                    @Html.PortfolioImage("/Content/img/port05.jpg", "PortfolioImage05")
+                    @Html.PortfolioImage("/Content/img/port06.jpg", "PortfolioImage06")
                 </div>
             </div>
         </div>
     </section>
-    <!---->
-    <!---->
-    <!--contact ends-->

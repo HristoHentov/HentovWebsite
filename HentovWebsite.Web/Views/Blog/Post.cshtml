@@ -4,70 +4,20 @@
     ViewBag.Title = "Post";
 }
 
-<h2>Post</h2>
-
-<div>
-    <h4>PostViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AuthorName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DatePosted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DatePosted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateEdited)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateEdited)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CommentsCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CommentsCount)
-        </dd>
-
-    </dl>
+<div class="container">
+    <div class="col-md-12">
+        <h1>@Model.Title</h1>
+        <p>@Model.Content</p>
+        <div>
+            <span class="badge">Posted @Model.DatePosted</span><div class="pull-right">
+                <span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
+                <span class="label label-danger">Danger</span>
+            </div>
+        </div>
+        <hr>
+    </div>
 </div>
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
-
-<h2>Comments</h2>
-
-
-<div>
-
-
-</div>

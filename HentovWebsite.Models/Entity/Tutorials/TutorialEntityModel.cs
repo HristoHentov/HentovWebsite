@@ -22,7 +22,7 @@ namespace HentovWebsite.Models.Entity.Tutorials
         [StringLength(maximumLength: 3000, MinimumLength = 4)]
         public string Description { get; set; }
 
-        public long Length { get; set; } //TODO: This can be a string or custom time format.
+        public long Length { get; set; }
        [RegularExpression("(?:https?:\\/\\/)?(?:www\\.)?youtu\\.?be(?:\\.com)?\\/?.*(?:watch|embed)?(?:.*v=|v\\/|\\/)([\\w\\-_]+)\\&?")]
         public string VideoUrl { get; set; }
 

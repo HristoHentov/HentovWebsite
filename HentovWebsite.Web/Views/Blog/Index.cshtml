@@ -1,20 +1,41 @@
 ﻿@model HentovWebsite.Models.View.Blog.PostCollectionViewModel
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Blog - Hentov.NET";
 }
-
-<h2>Blog - Hentov.NET</h2>
 
 @foreach (var post in Model.Posts)
 {
-
-    <h3>@post.Title</h3>
-    <h4>@post.AuthorName</h4>
-    <p>@post.Content</p>
-    <h5>@post.DatePosted - Comments: @post.CommentsCount</h5>
-    @Html.ActionLink("Read more","Post","Blog", new {id = @post.Id}, null)
-    @Html.ActionLink("Edit", "Edit", post, null)
-    @Html.ActionLink("Delte", "Delete", post, null);
+    
     <br/>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <div class="icerik-bilgi" id ="blog-post-title">
+                                <a href=@Url.Action("Post", "Blog", new {id = @post.Id})>
+                                    <h2>@post.Title</h2></a>
+                                <p>@post.Content</p>
+                                <div class="btn-group">
+                                    <h5>@post.AuthorName - @post.DatePosted</h5>
+                                </div>
+                                <div class="pull-right">
+                                    <a href=@Url.Action("Post", "Blog", new {id = @post.Id})>
+                                        <button type="button" class="btn btn-primary">
+                                            <span class="btn btn-google">Read more<i class="fa fa-chevron-right"></i></span>
+                                        </button>
+                                    </a>
+                                </div>
+                                @Html.ActionLink("Edit", "Edit", post, null)
+                                @Html.ActionLink("Delte", "Delete", post, null);
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }

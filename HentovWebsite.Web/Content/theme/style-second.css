@@ -223,6 +223,10 @@ p {
     padding: 0px 25px 25px 0px;
 }
 
+#about-container {
+    padding-top: 40px;
+}
+
 h3.txt-tl {
     font-size: 24px;
     line-height: 1.35;
@@ -625,6 +629,10 @@ a, a:hover {
        right: 38px;
     }
 }
+
 /*END*/
 
 /****/
+#blog-post-title {
+    color: #111111;
+}

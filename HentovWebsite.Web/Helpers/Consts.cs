@@ -1,4 +1,4 @@
-﻿namespace HentovWebsite.Web.Misc
+﻿namespace HentovWebsite.Web.Helpers
 {
     public static class Consts
     {

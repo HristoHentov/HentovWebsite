@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
@@ -16,7 +12,7 @@ using HentovWebsite.Models.Enums;
 using HentovWebsite.Models.View.Blog;
 using HentovWebsite.Models.View.Portfolio;
 using HentovWebsite.Models.View.Tutorials;
-using HentovWebsite.Web.Misc;
+using HentovWebsite.Web.Helpers;
 
 namespace HentovWebsite.Web
 {

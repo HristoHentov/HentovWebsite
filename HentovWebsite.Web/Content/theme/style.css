@@ -36,10 +36,6 @@ h1, h2, h3, h4, h5, h6
 	background-size: cover;
 	min-height: 610px;
 }
-.bg-color
-{
-	background-color: RGBA(0, 0, 0, 0.41);
-}
 
 .nav > li > a {
     padding: 0px;
@@ -85,7 +81,7 @@ h1, h2, h3, h4, h5, h6
 
 .wrapper
 {
-	padding: 90px 0px 130px;
+	padding: 150px 0px 130px;
 }
 .top-title
 {

@@ -1,24 +1,21 @@
+using System;
 using System.Collections.Generic;
+using System.Web;
 using HentovWebsite.Data;
 using HentovWebsite.Data.Contracts;
 using HentovWebsite.Models.Entity.Blog;
-using HentovWebsite.Models.View.Blog;
+using HentovWebsite.Web;
 using HentovWebsite.Web.Services;
 using HentovWebsite.Web.Services.Contracts;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Web.Common;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(HentovWebsite.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(HentovWebsite.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-namespace HentovWebsite.Web.App_Start
+namespace HentovWebsite.Web
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
