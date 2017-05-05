@@ -96,7 +96,9 @@
     <Compile Include="View\ManageLogin\ResetPasswordViewModel.cs" />
     <Compile Include="View\ManageLogin\SendCodeViewModel.cs" />
     <Compile Include="View\ManageLogin\VerifyCodeViewModel.cs" />
+    <Compile Include="View\Portfolio\AddProjectViewModel.cs" />
     <Compile Include="View\Portfolio\ProjectViewModel.cs" />
+    <Compile Include="View\Tutorials\AddTutorialViewModel.cs" />
     <Compile Include="View\Tutorials\TutorialCollectionViewModel.cs" />
     <Compile Include="View\Tutorials\TutorialDetailsViewModel.cs" />
     <Compile Include="View\Tutorials\TutorialViewModel.cs" />

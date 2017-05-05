@@ -1,0 +1,22 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "AdminArea";
+}
+
+<div class="container">
+    <div id ="admin-add-buttons" class="row">
+        <div class="col-md-3">
+            <a href=@Url.Action("AddPost") class="btn btn-lg btn-primary">Add Post<span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <div class="col-md-3">
+            <a href=@Url.Action("AddProject") class="btn btn-lg btn-primary">Add Project<span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <div class="col-md-3">
+            <a href=@Url.Action("AddTutorial") class="btn btn-lg btn-primary">Add Tutorial<span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <div class="col-md-3">
+            <a href=@Url.Action("Index", "Manage", new {area =""}) class="btn btn-lg btn-success">Profile</a>
+        </div>
+    </div>
+</div>

@@ -188,7 +188,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\AdminArea\AdminAreaAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -238,7 +239,14 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Areas\AdminArea\Views\web.config" />
+    <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_ManageWebsite.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\AddPost.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\AddProject.cshtml" />
+    <Content Include="Areas\Administration\Views\Admin\AddTutorial.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_AreaLayout.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -323,8 +331,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\AdminArea\Controllers\" />
-    <Folder Include="Areas\AdminArea\Views\Shared\" />
     <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>

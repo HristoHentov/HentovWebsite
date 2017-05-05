@@ -636,3 +636,8 @@ a, a:hover {
 #blog-post-title {
     color: #111111;
 }
+
+#admin-add-buttons {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}

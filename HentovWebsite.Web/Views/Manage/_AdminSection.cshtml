@@ -1,71 +1,7 @@
-﻿<div style="margin: auto">
-    @using (Html.BeginForm("AddPost", "Blog", FormMethod.Post))
-    {
-        <div class="form-group">
-            <label for="Title">Title</label>
-            <input type="text" class="form-control" id="Title" name="Title">
-        </div>
-        <div class="form-group">
-            <label for="Content">Description</label>
-            <input type="text" class="form-control" id="Content" name="Content">
-        </div>
-        <div class="form-group">
-            <label for="Tags">Tags</label>
-            <input type="text" class="form-control" id="Tags" name="Tags">
-        </div>
-
-        <button type="submit" class="btn btn-default">Add Post</button>
-    }
-</div>
+﻿
 <br />
-<div style="margin: auto">
-    @using (Html.BeginForm("AddTutorial", "Tutorials", FormMethod.Post))
-    {
-        <div class="form-group">
-            <label for="Title">Title</label>
-            <input type="text" class="form-control" id="Title" name="Title">
-        </div>
-        <div class="form-group">
-            <label for="Content">Description</label>
-            <input type="text" class="form-control" id="Content" name="Description">
-        </div>
-        <div class="form-group">
-            <label for="Tags">VideoUrl</label>
-            <input type="text" class="form-control" id="Tags" name="VideoUrl">
-        </div>
-        <div class="form-group">
-            <label for="Tags">Length</label>
-            <input type="text" class="form-control" id="Tags" name="Length">
-        </div>
 
-        <button type="submit" class="btn btn-default">Add Tutorial</button>
-    }
-</div>
+@Html.ActionLink("To admin section", "Index", "Admin", new {area = "Administration"}, new {@class ="btn btn-submit"})
+@Html.Partial("_UserSection")
 
-<div style="margin: auto">
-    @using (Html.BeginForm("AddProject", "Portfolio", FormMethod.Post))
-    {
-        <div class="form-group">
-            @Html.Label("Project Type")
-            <label class="radio-inline">Development @Html.RadioButton("Type", "Development", new { @class = "form-control" })</label>
-            <label class="radio-inline">Design @Html.RadioButton("Type", "Design", new { @class = "form-control" })</label>
-        </div>
-        <div class="form-group">
-            <label for="project-name">Project Name</label>
-            <input type="text" class="form-control" id="project-name" name="Name">
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text" class="form-control" id="description" name="Description">
-        </div>
-        <div class="form-group">
-            <label for="project-link">Project Link</label>
-            <input type="text" class="form-control" id="project-link" name="ProjectLink">
-        </div>
-        <div class="form-group">
-            <label for="thumbnail">Thumbnail</label>
-            <input type="file" class="form-control" id="thumbnail" name="Thumbnail">
-        </div>
-        <button type="submit" class="btn btn-default">Add Tutorial</button>
-    }
-</div>
+
