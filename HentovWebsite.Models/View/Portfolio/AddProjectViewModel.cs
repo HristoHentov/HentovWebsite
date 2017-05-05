@@ -1,6 +1,4 @@
-﻿using System.Security.AccessControl;
-
-namespace HentovWebsite.Models.View.Portfolio
+﻿namespace HentovWebsite.Models.View.Portfolio
 {
     public class AddProjectViewModel
     {

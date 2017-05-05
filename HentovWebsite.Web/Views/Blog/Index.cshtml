@@ -1,4 +1,5 @@
-﻿@model HentovWebsite.Models.View.Blog.PostCollectionViewModel
+﻿@using HentovWebsite.Models.Enums
+@model HentovWebsite.Models.View.Blog.PostCollectionViewModel
 
 @{
     ViewBag.Title = "Blog - Hentov.NET";
@@ -6,8 +7,8 @@
 
 @foreach (var post in Model.Posts)
 {
-    
-    <br/>
+
+    <br />
 
     <div class="container">
         <div class="left-panel">
@@ -15,9 +16,10 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="col-md-12">
-                            <div class="icerik-bilgi" id ="blog-post-title">
+                            <div class="icerik-bilgi" id="blog-post-title">
                                 <a href=@Url.Action("Post", "Blog", new {id = @post.Id})>
-                                    <h2>@post.Title</h2></a>
+                                    <h2>@post.Title</h2>
+                                </a>
                                 <p>@post.Content</p>
                                 <div class="btn-group">
                                     <h5>@post.AuthorName - @post.DatePosted</h5>
@@ -29,8 +31,11 @@
                                         </button>
                                     </a>
                                 </div>
-                                @Html.ActionLink("Edit", "Edit", post, null)
-                                @Html.ActionLink("Delte", "Delete", post, null);
+                                @if (User.IsInRole(UserRoles.Admin.ToString()))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", post, null)
+                                    @Html.ActionLink("Delte", "Delete", post, null);
+                                }
                             </div>
                         </div>
                     </div>

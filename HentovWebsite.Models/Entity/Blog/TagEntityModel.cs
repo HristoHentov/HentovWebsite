@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using HentovWebsite.Models.Configuration;
-using Microsoft.AspNet.Identity;
 
 namespace HentovWebsite.Models.Entity.Blog
 {

@@ -2,7 +2,7 @@
 using HentovWebsite.Models.Binding.Tutorials;
 using HentovWebsite.Models.View.Tutorials;
 
-namespace HentovWebsite.Web.Services.Contracts
+namespace HentovWebsite.Services.Services.Contracts
 {
     public interface ITutorialsService : IService
     {

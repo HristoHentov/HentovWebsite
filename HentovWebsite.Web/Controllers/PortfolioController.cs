@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using HentovWebsite.Models.Binding.Portfolio;
 using HentovWebsite.Models.Enums;
 using HentovWebsite.Models.View.Portfolio;
-using HentovWebsite.Web.Services.Contracts;
+using HentovWebsite.Services.Services.Contracts;
 
 namespace HentovWebsite.Web.Controllers
 {
@@ -35,6 +35,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddProject(AddProjectBindingModel project)
         {
             if (ModelState.IsValid)
@@ -47,11 +48,13 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(ProjectViewModel project)
         {
             return View(project);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(EditProjectBindingModel project)
         {
             if (ModelState.IsValid)
@@ -64,12 +67,14 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(ProjectViewModel tutorial)
         {
             return View(tutorial);
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             try

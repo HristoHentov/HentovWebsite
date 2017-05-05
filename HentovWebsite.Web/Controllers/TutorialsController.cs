@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using HentovWebsite.Models.Binding.Tutorials;
 using HentovWebsite.Models.View.Tutorials;
-using HentovWebsite.Web.Services.Contracts;
+using HentovWebsite.Services.Services.Contracts;
 
 namespace HentovWebsite.Web.Controllers
 {
@@ -25,6 +23,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddTutorial(AddTutorialBindingModel tutorial)
         {
             if (ModelState.IsValid)
@@ -43,12 +42,14 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(TutorialViewModel tutorial)
         {
             return View(tutorial);
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(EditTutorialBindingModel tutorial)
         {
             if (ModelState.IsValid)
@@ -62,12 +63,14 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(TutorialViewModel tutorial)
         {
             return View(tutorial);
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             try

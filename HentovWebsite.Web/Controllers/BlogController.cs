@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using HentovWebsite.Models.Binding.Blog;
 using HentovWebsite.Models.View.Blog;
-using HentovWebsite.Web.Services.Contracts;
+using HentovWebsite.Services.Services.Contracts;
 
 namespace HentovWebsite.Web.Controllers
 {
@@ -21,6 +21,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddPost(AddPostBindingModel post)
         {
             if (ModelState.IsValid)
@@ -40,12 +41,14 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(PostViewModel model)
         {
             return View(model);
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(EditPostBindingModel model)
         {
             if (ModelState.IsValid)
@@ -58,12 +61,14 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(PostViewModel post)
         {
             return View(post);
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             try

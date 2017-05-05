@@ -5,9 +5,9 @@ using HentovWebsite.Data.Contracts;
 using HentovWebsite.Models.Binding.Blog;
 using HentovWebsite.Models.Entity.Blog;
 using HentovWebsite.Models.View.Blog;
-using HentovWebsite.Web.Services.Contracts;
+using HentovWebsite.Services.Services.Contracts;
 
-namespace HentovWebsite.Web.Services
+namespace HentovWebsite.Services.Services
 {
     public class BlogService : IBlogService
     {

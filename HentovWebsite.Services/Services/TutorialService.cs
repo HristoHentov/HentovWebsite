@@ -4,9 +4,9 @@ using HentovWebsite.Data.Contracts;
 using HentovWebsite.Models.Binding.Tutorials;
 using HentovWebsite.Models.Entity.Tutorials;
 using HentovWebsite.Models.View.Tutorials;
-using HentovWebsite.Web.Services.Contracts;
+using HentovWebsite.Services.Services.Contracts;
 
-namespace HentovWebsite.Web.Services
+namespace HentovWebsite.Services.Services
 {
     public class TutorialService : ITutorialsService
     {

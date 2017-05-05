@@ -1,6 +1,4 @@
-﻿using HentovWebsite.Models.Enums;
-
-namespace HentovWebsite.Models.View.Portfolio
+﻿namespace HentovWebsite.Models.View.Portfolio
 {
     public class ProjectViewModel
     {

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using HentovWebsite.Models.Entity.Blog;
-using HentovWebsite.Models.View.Blog;
 
 namespace HentovWebsite.Models.View.Tutorials
 {
