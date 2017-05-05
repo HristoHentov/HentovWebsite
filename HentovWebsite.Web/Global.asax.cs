@@ -46,6 +46,12 @@ namespace HentovWebsite.Web
                     .ForMember(dest => dest.ProjectType, x => x.NullSubstitute(ProjectTypes.Development));
 
                 cfg.CreateMap<ProjectEntityModel, ProjectViewModel>();
+
+                cfg.CreateMap<EditPostBindingModel, PostViewModel>();
+
+                cfg.CreateMap<EditProjectBindingModel, ProjectViewModel>();
+
+                cfg.CreateMap<EditTutorialBindingModel, TutorialViewModel>();
             });
         }
     }

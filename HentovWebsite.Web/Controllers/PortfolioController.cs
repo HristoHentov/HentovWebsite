@@ -34,10 +34,16 @@ namespace HentovWebsite.Web.Controllers
             return View(projects);
         }
 
+        [HttpGet]
         public ActionResult AddProject(AddProjectBindingModel project)
         {
-            this.service.AddProject(project);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                this.service.AddProject(project);
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index", "Manage");
         }
 
         [HttpGet]
@@ -48,15 +54,13 @@ namespace HentovWebsite.Web.Controllers
         [HttpPost]
         public ActionResult Edit(EditProjectBindingModel project)
         {
-            try
+            if (ModelState.IsValid)
             {
                 this.service.EditProject(project);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
             }
-            catch (Exception)
-            {
-                throw new InvalidOperationException("Failed to edit project");
-            }
+            var vm = this.service.GetProjectViewModel(project);
+            return View(vm);
         }
 
         [HttpGet]

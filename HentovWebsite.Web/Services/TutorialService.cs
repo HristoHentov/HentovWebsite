@@ -52,5 +52,10 @@ namespace HentovWebsite.Web.Services
             this.context.Tutorials.Remove(id);
             this.context.SaveChanges();
         }
+
+        public TutorialViewModel GetTutorialViewModel(EditTutorialBindingModel tutorial)
+        {
+            return Mapper.Map<EditTutorialBindingModel, TutorialViewModel>(tutorial);
+        }
     }
 }

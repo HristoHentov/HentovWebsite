@@ -58,5 +58,10 @@ namespace HentovWebsite.Web.Services
             this.Context.Posts.Remove(postId);
             this.Context.SaveChanges();
         }
+
+        public PostViewModel GetViewModel(EditPostBindingModel model)
+        {
+            return Mapper.Map<EditPostBindingModel, PostViewModel>(model);
+        }
     }
 }

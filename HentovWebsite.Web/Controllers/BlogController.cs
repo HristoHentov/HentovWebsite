@@ -23,8 +23,13 @@ namespace HentovWebsite.Web.Controllers
         [HttpPost]
         public ActionResult AddPost(AddPostBindingModel post)
         {
-            this.service.AddPost(post, User.Identity.Name);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                this.service.AddPost(post, User.Identity.Name);
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index", "Manage");
         }
 
         [HttpGet]
@@ -43,16 +48,13 @@ namespace HentovWebsite.Web.Controllers
         [HttpPost]
         public ActionResult Edit(EditPostBindingModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
                 this.service.UpdatePost(model);
                 return RedirectToAction("Index");
             }
-            catch (Exception)
-            {
-
-            }
-            return View(model); ///Automap this to PostViewModel
+            var vm = this.service.GetViewModel(model);
+            return View(vm);
         }
 
         [HttpGet]
@@ -73,8 +75,6 @@ namespace HentovWebsite.Web.Controllers
             {
                throw new InvalidOperationException("Failed to delete post");
             }
-
-
         }
     }
 }

@@ -71,6 +71,14 @@
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="HentovWebsiteContext.cs" />
+    <Compile Include="Migrations\201705050950572_FixedValidations.cs" />
+    <Compile Include="Migrations\201705050950572_FixedValidations.Designer.cs">
+      <DependentUpon>201705050950572_FixedValidations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050953145_FixedTableName.cs" />
+    <Compile Include="Migrations\201705050953145_FixedTableName.Designer.cs">
+      <DependentUpon>201705050953145_FixedTableName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -85,6 +93,14 @@
       <Project>{f7825707-9238-4a0c-8d4d-22a7519ca1a7}</Project>
       <Name>HentovWebsite.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705050950572_FixedValidations.resx">
+      <DependentUpon>201705050950572_FixedValidations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050953145_FixedTableName.resx">
+      <DependentUpon>201705050953145_FixedTableName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

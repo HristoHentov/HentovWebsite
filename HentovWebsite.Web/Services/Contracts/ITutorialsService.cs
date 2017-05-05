@@ -11,5 +11,6 @@ namespace HentovWebsite.Web.Services.Contracts
         TutorialViewModel GetTutorialById(int id);
         void EditTutorial(EditTutorialBindingModel tutorial);
         void DeleteTutorial(int id);
+        TutorialViewModel GetTutorialViewModel(EditTutorialBindingModel tutorial);
     }
 }

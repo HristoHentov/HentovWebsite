@@ -22,7 +22,7 @@ namespace HentovWebsite.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private IAccountService service;
+        private readonly IAccountService service;
 
         public AccountController(IAccountService service)
         {

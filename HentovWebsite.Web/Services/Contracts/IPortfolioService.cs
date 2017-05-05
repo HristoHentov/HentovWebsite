@@ -11,5 +11,6 @@ namespace HentovWebsite.Web.Services.Contracts
         IEnumerable<ProjectViewModel> GetProjects(ProjectTypes type);
         void EditProject(EditProjectBindingModel project);
         void DeleteProject(int id);
+        ProjectViewModel GetProjectViewModel(EditProjectBindingModel project);
     }
 }

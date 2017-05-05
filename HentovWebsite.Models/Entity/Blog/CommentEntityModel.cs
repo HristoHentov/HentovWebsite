@@ -15,13 +15,11 @@ namespace HentovWebsite.Models.Entity.Blog
 
         public int Id { get; set; }
 
-        [MinLength(3)]
-        [MaxLength(20)]
         [Required]
         public string AuthorName { get; set; }
 
-        [DataType(DataType.Date)]
         [Required]
+        [DataType(DataType.Date)]
         public DateTime TimePosted { get; set; }
 
         public ICollection<CommentEntityModel> Replies { get; set; }

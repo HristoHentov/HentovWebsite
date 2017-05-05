@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using HentovWebsite.Models.Configuration;
 
 namespace HentovWebsite.Models.Entity.Blog
 {
@@ -10,10 +11,10 @@ namespace HentovWebsite.Models.Entity.Blog
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(maximumLength: 30, MinimumLength = 4)]
+        [StringLength(Constraints.TitleMaxLen, MinimumLength = Constraints.TitleMinLen)]
         public string Title { get; set; }
         [Required]
-        [StringLength(maximumLength: 12000, MinimumLength = 4)]
+        [StringLength(Constraints.PostContentMaxLen, MinimumLength = Constraints.CommentContentMinLen)]
         public string Content { get; set; }
         [Required]
         public string AuthorName { get; set; }
