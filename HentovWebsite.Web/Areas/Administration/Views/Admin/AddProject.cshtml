@@ -1,0 +1,45 @@
+﻿@model HentovWebsite.Models.View.Portfolio.AddProjectViewModel
+
+@{
+    ViewBag.Title = "Add Project - Hentov.NET";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-5">
+            <div style="margin: auto">
+                @using (Html.BeginForm("AddProject", "Portfolio", new {area = ""},FormMethod.Post))
+            {
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Type)
+                        <div>Development @Html.RadioButtonFor(x => x.Type, "Development")</div>
+                        <div>Design @Html.RadioButtonFor(x => x.Type, "Design")</div>
+                        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Name)
+                        <div>
+                            @Html.EditorFor(x => x.Name)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Description)
+                        <div>
+                            @Html.EditorFor(x => x.Description)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.ProjectLink);
+                        <div>
+                            @Html.EditorFor(x => x.ProjectLink)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="thumbnail">Thumbnail</label>
+                        <input type="file" class="form-control" id="thumbnail" name="Thumbnail">
+                    </div>
+                    <button type="submit" class="btn btn-submit">Add Project</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
