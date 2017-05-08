@@ -7,13 +7,13 @@ namespace HentovWebsite.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class FixedTableName : IMigrationMetadata
+    public sealed partial class RemovedPostLiking2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FixedTableName));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedPostLiking2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705050953145_FixedTableName"; }
+            get { return "201705061750231_RemovedPostLiking2"; }
         }
         
         string IMigrationMetadata.Source

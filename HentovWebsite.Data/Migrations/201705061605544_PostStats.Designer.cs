@@ -7,13 +7,13 @@ namespace HentovWebsite.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class FixedValidations : IMigrationMetadata
+    public sealed partial class PostStats : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FixedValidations));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PostStats));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705050950572_FixedValidations"; }
+            get { return "201705061605544_PostStats"; }
         }
         
         string IMigrationMetadata.Source

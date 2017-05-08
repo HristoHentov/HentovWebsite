@@ -203,7 +203,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
-    <Compile Include="Helpers\Consts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -242,6 +241,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -344,6 +345,10 @@
     <ProjectReference Include="..\HentovWebsite.Services\HentovWebsite.Services.csproj">
       <Project>{436fefad-a5fd-4370-8011-74ece4488ce3}</Project>
       <Name>HentovWebsite.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HentovWebsite.Utility\HentovWebsite.Utility.csproj">
+      <Project>{4C54115F-8046-43B3-B384-2B225F81C1B2}</Project>
+      <Name>HentovWebsite.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

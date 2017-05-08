@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HentovWebsite.Data", "Hento
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HentovWebsite.Services", "HentovWebsite.Services\HentovWebsite.Services.csproj", "{436FEFAD-A5FD-4370-8011-74ECE4488CE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HentovWebsite.Utility", "HentovWebsite.Utility\HentovWebsite.Utility.csproj", "{4C54115F-8046-43B3-B384-2B225F81C1B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{436FEFAD-A5FD-4370-8011-74ECE4488CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{436FEFAD-A5FD-4370-8011-74ECE4488CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{436FEFAD-A5FD-4370-8011-74ECE4488CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C54115F-8046-43B3-B384-2B225F81C1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C54115F-8046-43B3-B384-2B225F81C1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C54115F-8046-43B3-B384-2B225F81C1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C54115F-8046-43B3-B384-2B225F81C1B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

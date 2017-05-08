@@ -7,7 +7,7 @@ namespace HentovWebsite.Models.Binding.Portfolio
     public class AddProjectBindingModel
     {
         [Required]
-        [StringLength(Constraints.TitleMinLen, MinimumLength = Constraints.TitleMinLen)]
+        [StringLength(Constraints.TitleMaxLen, MinimumLength = Constraints.TitleMinLen)]
         public string Name { get; set; }
         [Required]
         [StringLength(Constraints.DescriptMaxLen, MinimumLength = Constraints.DescriptMinLen)]

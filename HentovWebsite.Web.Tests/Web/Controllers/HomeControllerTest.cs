@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HentovWebsite.Web.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HentovWebsite.Web.Tests.Controllers
+namespace HentovWebsite.Web.Tests.Web.Controllers
 {
     [TestClass]
     public class HomeControllerTest

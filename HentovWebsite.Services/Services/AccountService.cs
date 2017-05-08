@@ -3,6 +3,7 @@ using HentovWebsite.Data.Contracts;
 using HentovWebsite.Models.Entity.Users;
 using HentovWebsite.Models.Enums;
 using HentovWebsite.Services.Services.Contracts;
+using HentovWebsite.Utility;
 using Microsoft.AspNet.Identity;
 
 namespace HentovWebsite.Services.Services
@@ -17,30 +18,33 @@ namespace HentovWebsite.Services.Services
         }
         public WebsiteUser CreateWebsiteUser(ApplicationUser appuser)
         {
-            var user = new WebsiteUser
+            if (appuser != null)
             {
-                Name = appuser.UserName,
-                IdentityUser = appuser
-            };
+                var user = new WebsiteUser
+                {
+                    Name = appuser.UserName,
+                    IdentityUser = appuser
+                };
 
-            return user;
+                return user;
+            }
+
+            throw new ArgumentNullException(Consts.NullApplicationUserError);
         }
 
         public bool RegisterWebsiteUser(WebsiteUser websiteUser)
         {
-            try
+            if(websiteUser != null && websiteUser.Name != null)
             {
                 var id = websiteUser.IdentityUser.Id;
-                var identityUser = this.context.Users.Find(id);
-                this.context.WebsiteUsers.Add(new WebsiteUser {Name = websiteUser.Name, IdentityUser = identityUser});
-                this.context.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
+                var identityUser = this.context.Users.FirstOrDefault(p => p.Id == id);
+                this.context.WebsiteUsers.Add(new WebsiteUser { Name = websiteUser.Name, IdentityUser = identityUser });
+
+                if (this.context.SaveChanges() > 0)
+                    return true;
             }
 
+            return false;
         }
     }
 }

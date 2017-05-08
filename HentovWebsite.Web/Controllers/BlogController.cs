@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using HentovWebsite.Models.Binding.Blog;
 using HentovWebsite.Models.View.Blog;
 using HentovWebsite.Services.Services.Contracts;
+using HentovWebsite.Utility;
 
 namespace HentovWebsite.Web.Controllers
 {
@@ -13,11 +14,33 @@ namespace HentovWebsite.Web.Controllers
         {
             this.service = blogService;
         }
-        // GET: Blog
+        
         public ActionResult Index()
         {
             var posts = service.GetBlogPosts();
             return View(posts);
+        }
+        [Authorize(Roles = "Admin, Moderator, WebsiteUser")]
+        public ActionResult LikePost(int postId, string userId, bool authorized)
+        {
+            if (authorized)
+            {
+                this.service.LikePost(postId, userId, authorized);
+                var likes = this.service.GetPostLikes(postId).ToString();
+                return Content(likes);
+            }
+            return RedirectToAction("Login", "Account");
+        }
+
+        public ActionResult DislikePost(int postId, string userId, bool authorized)
+        {
+            if (authorized)
+            {
+                this.service.Dislike(postId, userId, authorized);
+                var likes = this.service.GetPostLikes(postId).ToString();
+                return Content(likes);
+            }
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpPost]
@@ -78,7 +101,7 @@ namespace HentovWebsite.Web.Controllers
             }
             catch (Exception)
             {
-               throw new InvalidOperationException("Failed to delete post");
+               throw new InvalidOperationException(Consts.DeletePostError);
             }
         }
     }

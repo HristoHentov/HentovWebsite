@@ -4,7 +4,7 @@ using HentovWebsite.Models.Configuration;
 
 namespace HentovWebsite.Models.Entity.Blog
 {
-    [Table("Tags")]
+    [Table(name:"Tags")]
     public class TagEntityModel
     { 
         public int Id { get; set; }

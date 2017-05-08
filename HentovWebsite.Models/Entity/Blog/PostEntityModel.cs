@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using HentovWebsite.Models.Configuration;
+using HentovWebsite.Models.Entity.Users;
 
 namespace HentovWebsite.Models.Entity.Blog
 {
-    [Table("Posts")]
+    [Table(name:"Posts")]
     public class PostEntityModel
     {
         public int Id { get; set; }
@@ -22,6 +23,8 @@ namespace HentovWebsite.Models.Entity.Blog
         public DateTime? DatePosted { get; set; }
 
         public DateTime? DateEdited { get; set; }
+
+        public virtual ICollection<WebsiteUser> UsersWhoLiked { get; set; }
 
         public virtual List<CommentEntityModel> Comments { get; set; }
     }

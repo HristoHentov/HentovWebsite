@@ -6,7 +6,7 @@ using HentovWebsite.Models.Entity.Blog;
 
 namespace HentovWebsite.Models.Entity.Tutorials
 {
-    [Table("Tutorials")]
+    [Table(name:"Tutorials")]
     public class TutorialEntityModel
     {
         public TutorialEntityModel()

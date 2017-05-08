@@ -63,5 +63,46 @@ namespace HentovWebsite.Services.Services
         {
             return Mapper.Map<EditPostBindingModel, PostViewModel>(model);
         }
+
+        public void LikePost(int postId, string userId, bool authorized)
+        {
+            if (authorized)
+            {
+                var post = this.Context.Posts.Find(postId);
+                var user = this.Context.WebsiteUsers.FirstOrDefault(u => u.IdentityUser.Id == userId);
+
+                bool hasPosts = post.UsersWhoLiked.Contains(user);
+                if (!hasPosts)
+                {
+                    post.UsersWhoLiked.Add(user);
+                    user.LikedPosts.Add(post);
+                }
+
+                this.Context.SaveChanges();
+            }
+        }
+
+        public int GetPostLikes(int id)
+        {
+            return this.Context.Posts.Find(id).UsersWhoLiked.Count;
+        }
+
+        public void Dislike(int postId, string userId, bool authorized)
+        {
+            if (authorized)
+            {
+                var post = this.Context.Posts.Find(postId);
+                var user = this.Context.WebsiteUsers.FirstOrDefault(u => u.IdentityUser.Id == userId);
+
+                bool userHasLiked = post.UsersWhoLiked.Contains(user);
+                if (userHasLiked)
+                {
+                    post.UsersWhoLiked.Remove(user);
+                    user.LikedPosts.Remove(post);
+                }
+
+                this.Context.SaveChanges();
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ using HentovWebsite.Models.Enums;
 using HentovWebsite.Models.View.Blog;
 using HentovWebsite.Models.View.Portfolio;
 using HentovWebsite.Models.View.Tutorials;
+using HentovWebsite.Utility;
 using HentovWebsite.Web.Helpers;
 
 namespace HentovWebsite.Web
@@ -38,7 +39,8 @@ namespace HentovWebsite.Web
                     .MapFrom(src => string.Format(Consts.VideoThumbnailFormat, src.VideoId)));
 
                 cfg.CreateMap<PostEntityModel, PostViewModel>()
-                    .ForMember(dest => dest.CommentsCount, o => o.MapFrom(x => x.Comments.Count));
+                    .ForMember(dest => dest.CommentsCount, o => o.MapFrom(x => x.Comments.Count))
+                    .ForMember(dest => dest.Likes, o => o.MapFrom(m => m.UsersWhoLiked.Count));
 
                 cfg.CreateMap<TutorialEntityModel, TutorialViewModel>();
 

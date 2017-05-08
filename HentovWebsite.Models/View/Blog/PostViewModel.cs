@@ -15,5 +15,7 @@ namespace HentovWebsite.Models.View.Blog
         public DateTime? DateEdited { get; set; }
 
         public int CommentsCount { get; set; }
+
+        public int Likes { get; set; }
     }
 }

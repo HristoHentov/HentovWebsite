@@ -5,6 +5,7 @@ using HentovWebsite.Models.Binding.Portfolio;
 using HentovWebsite.Models.Enums;
 using HentovWebsite.Models.View.Portfolio;
 using HentovWebsite.Services.Services.Contracts;
+using HentovWebsite.Utility;
 
 namespace HentovWebsite.Web.Controllers
 {
@@ -34,7 +35,7 @@ namespace HentovWebsite.Web.Controllers
             return View(projects);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Authorize(Roles = "Admin")]
         public ActionResult AddProject(AddProjectBindingModel project)
         {
@@ -84,7 +85,7 @@ namespace HentovWebsite.Web.Controllers
             }
             catch (Exception)
             {
-                throw new InvalidOperationException("Failed to delete project!");
+                throw new InvalidOperationException(Consts.DeleteProjectError);
             }
         }
 

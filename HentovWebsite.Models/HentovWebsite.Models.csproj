@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binding\About\SendMailBindingModel.cs" />
     <Compile Include="Binding\Blog\CommentBindingModel.cs" />
     <Compile Include="Binding\Blog\AddPostBindingModel.cs" />
     <Compile Include="Binding\Portfolio\AddProjectBindingModel.cs" />
@@ -103,7 +104,12 @@
     <Compile Include="View\Tutorials\TutorialDetailsViewModel.cs" />
     <Compile Include="View\Tutorials\TutorialViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HentovWebsite.Utility\HentovWebsite.Utility.csproj">
+      <Project>{4C54115F-8046-43B3-B384-2B225F81C1B2}</Project>
+      <Name>HentovWebsite.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

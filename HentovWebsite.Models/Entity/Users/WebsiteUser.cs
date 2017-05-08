@@ -9,11 +9,14 @@ namespace HentovWebsite.Models.Entity.Users
         public WebsiteUser()
         {
             this.Comments = new List<CommentEntityModel>();
+            this.LikedPosts = new List<PostEntityModel>();
         }
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public virtual ApplicationUser IdentityUser { get; set; }
+
+        public ICollection<PostEntityModel> LikedPosts { get; set; }
         public ICollection<CommentEntityModel> Comments { get; set; }
     }
 }

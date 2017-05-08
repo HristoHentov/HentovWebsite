@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using HentovWebsite.Models.Binding.Tutorials;
 using HentovWebsite.Models.View.Tutorials;
 using HentovWebsite.Services.Services.Contracts;
+using HentovWebsite.Utility;
 
 namespace HentovWebsite.Web.Controllers
 {
@@ -80,7 +81,7 @@ namespace HentovWebsite.Web.Controllers
             }
             catch (Exception)
             {
-                throw new InvalidOperationException("Failed to delete tutorial!");
+                throw new InvalidOperationException(Consts.DeleteTutorialError);
             }
         }
     }

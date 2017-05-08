@@ -71,13 +71,17 @@
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="HentovWebsiteContext.cs" />
-    <Compile Include="Migrations\201705050950572_FixedValidations.cs" />
-    <Compile Include="Migrations\201705050950572_FixedValidations.Designer.cs">
-      <DependentUpon>201705050950572_FixedValidations.cs</DependentUpon>
+    <Compile Include="Migrations\201705061232339_Test.cs" />
+    <Compile Include="Migrations\201705061232339_Test.Designer.cs">
+      <DependentUpon>201705061232339_Test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705050953145_FixedTableName.cs" />
-    <Compile Include="Migrations\201705050953145_FixedTableName.Designer.cs">
-      <DependentUpon>201705050953145_FixedTableName.cs</DependentUpon>
+    <Compile Include="Migrations\201705061605544_PostStats.cs" />
+    <Compile Include="Migrations\201705061605544_PostStats.Designer.cs">
+      <DependentUpon>201705061605544_PostStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705061750231_RemovedPostLiking2.cs" />
+    <Compile Include="Migrations\201705061750231_RemovedPostLiking2.Designer.cs">
+      <DependentUpon>201705061750231_RemovedPostLiking2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,11 +99,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705050950572_FixedValidations.resx">
-      <DependentUpon>201705050950572_FixedValidations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705061232339_Test.resx">
+      <DependentUpon>201705061232339_Test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050953145_FixedTableName.resx">
-      <DependentUpon>201705050953145_FixedTableName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705061605544_PostStats.resx">
+      <DependentUpon>201705061605544_PostStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705061750231_RemovedPostLiking2.resx">
+      <DependentUpon>201705061750231_RemovedPostLiking2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

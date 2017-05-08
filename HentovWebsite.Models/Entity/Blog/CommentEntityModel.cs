@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HentovWebsite.Models.Entity.Blog
 {
-    [Table("Comments")]
+    [Table(name:"Comments")]
     public class CommentEntityModel
     {
         public CommentEntityModel()

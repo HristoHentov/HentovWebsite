@@ -32,9 +32,8 @@ namespace HentovWebsite.Services.Services
 
         public TutorialViewModel GetTutorialById(int id)
         {
-            return Mapper.Map
-                <TutorialEntityModel, TutorialViewModel>
-                (this.context.Tutorials.FirstOrDefault(t => t.Id == id));
+            var tut = this.context.Tutorials.FirstOrDefault(t => t.Id == id);
+            return Mapper.Map<TutorialEntityModel, TutorialViewModel>(tut);
         }
 
         public void EditTutorial(EditTutorialBindingModel tutorial)
