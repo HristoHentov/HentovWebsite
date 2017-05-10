@@ -1,24 +1,24 @@
 ﻿@model HentovWebsite.Models.View.Tutorials.TutorialViewModel
+
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete Project - Hentov.NET";
 }
 
-
-@using (Html.BeginForm())
-{
-    <strong><h4>Sure you wanna do this?</h4></strong>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            @Html.ActionLink("No, it was an honest mistake", "Index");
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <h4>Sure you wanna do this?</h4>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.ActionLink("No, it was an honest mistake", "Index");
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            @Html.HiddenFor(x => x.Id);
-            <input type="submit" value="Yeah, I know what I'm doing'" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Id);
+                <input type="submit" value="Yeah, I know what I'm doing" class="btn btn-default" />
+            </div>
         </div>
-    </div>
-}
-
+    }
+</div>

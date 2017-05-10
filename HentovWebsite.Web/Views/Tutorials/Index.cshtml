@@ -6,10 +6,10 @@
     ViewBag.PlayButton = "/Content/img/play-button.png";
 }
 <div class="container">
-    @foreach (var tutorial in @Model)
-    {
-        <div class="row">
-            <div class="col-md-3">
+    <div class="row">
+        @foreach (var tutorial in @Model)
+        {
+            <div class="col-sm-3">
                 <div class="card hovercard">
                     <img src="@tutorial.Thumbnail" alt="Tutorial thumbnail" />
                     <div class="avatar">
@@ -42,6 +42,6 @@
                 </div>
 
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>

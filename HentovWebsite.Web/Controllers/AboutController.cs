@@ -6,6 +6,7 @@ using HentovWebsite.Utility;
 
 namespace HentovWebsite.Web.Controllers
 {
+    [RoutePrefix("About")]
     public class AboutController : Controller
     {
         private readonly IAboutService service;
@@ -14,11 +15,16 @@ namespace HentovWebsite.Web.Controllers
         {
             this.service = service;
         }
+
+        [HttpGet]
+        [Route("Index")]
         public ActionResult Index()
         {
             return View("Index");
         }
 
+        //[HttpPost]
+        [Route("SendMail")]
         public ActionResult SendMail(SendMailBindingModel model)
         {
             var sendMailresult = this.service.SendMail(
@@ -30,9 +36,17 @@ namespace HentovWebsite.Web.Controllers
                   Consts.AdminMailRecepient);
 
             if (sendMailresult)
-                return RedirectToAction("Index", "Home"); //TODO: Redirect to actual message sent successfully page.
+                return RedirectToAction("MessageSent", "About");
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [Route("MessageSent")]
+        [ChildActionOnly]
+        public ActionResult MessageSent()
+        {
+            return View();
         }
     }
 }

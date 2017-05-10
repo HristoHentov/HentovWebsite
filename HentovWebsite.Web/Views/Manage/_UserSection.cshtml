@@ -1,6 +1,18 @@
-﻿@model dynamic
+﻿@model HentovWebsite.Models.View.ManageAccount.IndexViewModel
 
-<h1>You are a peasent user.</h1>
-<h2>Your upvotes</h2>
-<h2>Your comments</h2>
-<h2>Saved posts</h2>
+<div class="panel panel-info">
+    @if (Model.User.LikedPosts.Count > 0)
+    {
+        <h1 class="panel-heading">Posts you've liked</h1>
+        foreach (var likedPost in Model.User.LikedPosts)
+        {
+            @Html.ActionLink(likedPost.Title, "Post", "Blog", new { id = likedPost.Id }, new { @class = "panel-body" })
+        }
+    }
+    else
+    {
+        <h1 class="panel-heading">You haven't liked any posts.</h1>
+
+    }
+    
+</div>

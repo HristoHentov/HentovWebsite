@@ -31,14 +31,14 @@
                                             HttpMethod = "GET",
                                             InsertionMode = InsertionMode.Replace,
                                             UpdateTargetId = $"post-likes-{post.Id}"
-                                            })
+                                            }, new {@class="btn btn-success"})
 
                                             @Ajax.ActionLink("Dislike", "DislikePost", new{postId = post.Id, userId = User.Identity.GetUserId(), authorized = User.Identity.IsAuthenticated}, new AjaxOptions
                                             {
                                             HttpMethod = "GET",
                                             InsertionMode = InsertionMode.Replace,
                                             UpdateTargetId = $"post-likes-{post.Id}"
-                                            })
+                                            }, new {@class="btn btn-danger"})
                                         </span>
                                     </div>
                                 </div>
@@ -51,8 +51,8 @@
                                 </div>
                                 @if (User.IsInRole(UserRoles.Admin.ToString()))
                                 {
-                                @Html.ActionLink("Edit", "Edit", post, null)
-                                @Html.ActionLink("Delte", "Delete", post, null)
+                                @Html.ActionLink("Edit", "Edit", post, new {@class = "btn btn-submit"})
+                                @Html.ActionLink("Delte", "Delete", post, new { @class = "btn btn-submit" })
                                 }
                             </div>
                         </div>

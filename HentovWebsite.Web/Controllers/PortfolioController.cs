@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using HentovWebsite.Models.Binding.Portfolio;
 using HentovWebsite.Models.Enums;
 using HentovWebsite.Models.View.Portfolio;
@@ -9,6 +10,7 @@ using HentovWebsite.Utility;
 
 namespace HentovWebsite.Web.Controllers
 {
+    [RoutePrefix("Portfolio")]
     public class PortfolioController : Controller
     {
         private readonly IPortfolioService service;
@@ -18,17 +20,25 @@ namespace HentovWebsite.Web.Controllers
             this.service = portService;
         }
         // GET: Portfolio
+        [HttpGet]
+        [Route("Index")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
+        [Route("Development")]
+        [OutputCache(Duration = 30, Location = OutputCacheLocation.Client)]
         public ActionResult Development()
         {
             var projects = this.service.GetProjects(ProjectTypes.Development).ToList();
             return View(projects);
         }
 
+        [HttpGet]
+        [Route("Design")]
+        [OutputCache(Duration = 30, Location = OutputCacheLocation.Client)]
         public ActionResult Design()
         {
             var projects = this.service.GetProjects(ProjectTypes.Design).ToList();
@@ -36,6 +46,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpPost]
+        [Route("AddProject")]
         [Authorize(Roles = "Admin")]
         public ActionResult AddProject(AddProjectBindingModel project)
         {
@@ -49,12 +60,15 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Route("Edit")]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(ProjectViewModel project)
         {
             return View(project);
         }
+
         [HttpPost]
+        [Route("Edit")]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(EditProjectBindingModel project)
         {
@@ -68,6 +82,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Route("Delete")]
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(ProjectViewModel tutorial)
         {
@@ -75,6 +90,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpPost]
+        [Route("Delete")]
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {

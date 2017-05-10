@@ -72,6 +72,7 @@ namespace HentovWebsite.Web
             kernel.Bind<IPortfolioService>().To<PortfolioService>();
             kernel.Bind<IAccountService>().To<AccountService>();
             kernel.Bind<IAboutService>().To<AboutService>();
+            kernel.Bind<IManageService>().To<ManageService>();
             kernel.Bind<ICollection<TagEntityModel>>().To<List<TagEntityModel>>();
         }        
     }

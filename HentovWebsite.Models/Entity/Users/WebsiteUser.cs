@@ -15,8 +15,7 @@ namespace HentovWebsite.Models.Entity.Users
         [Required]
         public string Name { get; set; }
         public virtual ApplicationUser IdentityUser { get; set; }
-
-        public ICollection<PostEntityModel> LikedPosts { get; set; }
-        public ICollection<CommentEntityModel> Comments { get; set; }
+        public virtual ICollection<PostEntityModel> LikedPosts { get; set; }
+        public virtual ICollection<CommentEntityModel> Comments { get; set; }
     }
 }

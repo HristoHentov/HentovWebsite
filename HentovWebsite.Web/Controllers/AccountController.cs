@@ -14,6 +14,7 @@ using Microsoft.Owin.Security;
 namespace HentovWebsite.Web.Controllers
 {
     [Authorize]
+    [RoutePrefix("Account")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -57,6 +58,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Account/Login
+        [Route("Login")]
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -67,6 +69,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Account/Login
         [HttpPost]
+        [Route("Login")]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
@@ -140,6 +143,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // GET: /Account/
         [AllowAnonymous]
+        [Route("Register")]
         public ActionResult Register()
         {
             return View();
@@ -149,6 +153,7 @@ namespace HentovWebsite.Web.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
+        [Route("Register")]
         [ValidateAntiForgeryToken]
         [HandleError(ExceptionType = typeof(InvalidOperationException), View = "~/Views/Errors/RegistrationError.cshtml")]
         public async Task<ActionResult> Register(RegisterViewModel model)
@@ -191,6 +196,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
+        [Route("ForgotPassword")]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -200,6 +206,7 @@ namespace HentovWebsite.Web.Controllers
         // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
+        [Route("ForgotPassword")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -211,13 +218,6 @@ namespace HentovWebsite.Web.Controllers
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");
                 }
-
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -227,6 +227,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
+        [Route("ForgotPasswordConfirmation")]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -235,6 +236,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
+        [Route("ResetPassword")]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -244,6 +246,7 @@ namespace HentovWebsite.Web.Controllers
         // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
+        [Route("ResetPassword")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -269,6 +272,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
+        [Route("ResetPasswordConfirmation")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -278,6 +282,7 @@ namespace HentovWebsite.Web.Controllers
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
+        [Route("ExternalLogin")]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
@@ -391,6 +396,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Account/LogOff
         [HttpPost]
+        [Route("LogOff")]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {

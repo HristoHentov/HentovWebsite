@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HentovWebsite.Models.Entity.Users;
 using Microsoft.AspNet.Identity;
 
 namespace HentovWebsite.Models.View.ManageAccount
@@ -10,5 +11,6 @@ namespace HentovWebsite.Models.View.ManageAccount
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public WebsiteUser User { get; set; }
     }
 }

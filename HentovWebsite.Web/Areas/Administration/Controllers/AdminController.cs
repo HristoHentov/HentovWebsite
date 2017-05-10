@@ -2,9 +2,10 @@
 
 namespace HentovWebsite.Web.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-        // GET: Administration/Admin
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

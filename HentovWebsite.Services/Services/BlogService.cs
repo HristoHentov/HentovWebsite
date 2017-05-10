@@ -50,6 +50,7 @@ namespace HentovWebsite.Services.Services
             var postToEdit = this.Context.Posts.Find(model.Id);
             postToEdit.Title = model.Title;
             postToEdit.Content = model.Content;
+            postToEdit.DateEdited = DateTime.Now;
             this.Context.SaveChanges();
         }
 
@@ -76,9 +77,9 @@ namespace HentovWebsite.Services.Services
                 {
                     post.UsersWhoLiked.Add(user);
                     user.LikedPosts.Add(post);
+                    this.Context.SaveChanges();
                 }
 
-                this.Context.SaveChanges();
             }
         }
 

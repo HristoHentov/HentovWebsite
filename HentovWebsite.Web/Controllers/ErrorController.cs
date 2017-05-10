@@ -2,9 +2,10 @@
 
 namespace HentovWebsite.Web.Controllers
 {
+    [RoutePrefix("Error")]
     public class ErrorController : Controller
     {
-        // GET: Error
+        [Route("NotFound")]
         public ActionResult NotFound()
         {
             return View();

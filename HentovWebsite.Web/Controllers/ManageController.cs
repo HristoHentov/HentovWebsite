@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using HentovWebsite.Models.View.ManageAccount;
+using HentovWebsite.Services.Services.Contracts;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -10,13 +11,16 @@ using Microsoft.Owin.Security;
 namespace HentovWebsite.Web.Controllers
 {
     [Authorize]
+    [RoutePrefix("Manage")]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private IManageService service;
 
-        public ManageController()
+        public ManageController(IManageService service)
         {
+            this.service = service;
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -51,6 +55,8 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/Index
+        [HttpGet]
+        [Route("Index")]
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -69,7 +75,8 @@ namespace HentovWebsite.Web.Controllers
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                User = this.service.GetUserById(userId)
             };
             return View(model);
         }
@@ -77,6 +84,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]
+        [Route("RemoteLogin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
         {
@@ -100,6 +108,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/AddPhoneNumber
+        [Route("AddPhoneNumber")]
         public ActionResult AddPhoneNumber()
         {
             return View();
@@ -108,6 +117,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/AddPhoneNumber
         [HttpPost]
+        [Route("AddPhoneNumber")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddPhoneNumber(AddPhoneNumberViewModel model)
         {
@@ -132,6 +142,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/EnableTwoFactorAuthentication
         [HttpPost]
+        [Route("EnableTwoFactorAuthentication")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EnableTwoFactorAuthentication()
         {
@@ -147,6 +158,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/DisableTwoFactorAuthentication
         [HttpPost]
+        [Route("DisableTwoFactorAuthentication")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DisableTwoFactorAuthentication()
         {
@@ -161,6 +173,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/VerifyPhoneNumber
+        [Route("VerifyPhoneNumber")]
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
@@ -171,6 +184,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/VerifyPhoneNumber
         [HttpPost]
+        [Route("VerifyPhoneNumber")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
         {
@@ -195,6 +209,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/RemovePhoneNumber
+        [Route("RemovePhoneNumber")]
         public async Task<ActionResult> RemovePhoneNumber()
         {
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
@@ -212,6 +227,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/ChangePassword
+        [Route("ChangePassword")]
         public ActionResult ChangePassword()
         {
             return View();
@@ -220,6 +236,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
+        [Route("ChangePassword")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
@@ -243,6 +260,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/SetPassword
+        [Route("SetPassword")]
         public ActionResult SetPassword()
         {
             return View();
@@ -251,6 +269,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/SetPassword
         [HttpPost]
+        [Route("SetPassword")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SetPassword(SetPasswordViewModel model)
         {
@@ -275,6 +294,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/ManageLogins
+        [Route("ManageLogins")]
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -299,6 +319,7 @@ namespace HentovWebsite.Web.Controllers
         //
         // POST: /Manage/LinkLogin
         [HttpPost]
+        [Route("LinkLogin")]
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
         {
@@ -308,6 +329,7 @@ namespace HentovWebsite.Web.Controllers
 
         //
         // GET: /Manage/LinkLoginCallback
+        [Route("LinkLoginCallback")]
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());

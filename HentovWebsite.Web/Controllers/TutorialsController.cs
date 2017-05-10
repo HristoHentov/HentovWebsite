@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using HentovWebsite.Models.Binding.Tutorials;
 using HentovWebsite.Models.View.Tutorials;
 using HentovWebsite.Services.Services.Contracts;
@@ -8,6 +9,7 @@ using HentovWebsite.Utility;
 
 namespace HentovWebsite.Web.Controllers
 {
+    [RoutePrefix("Tutorials")]
     public class TutorialsController : Controller
     {
         private readonly ITutorialsService service;
@@ -17,6 +19,9 @@ namespace HentovWebsite.Web.Controllers
             this.service = service;
         }
 
+        [HttpGet]
+        [Route("Index")]
+        [OutputCache(Duration = 30, Location = OutputCacheLocation.Client)]
         public ActionResult Index()
         {
             var tutorials = this.service.GetAllTutorials().ToList();
@@ -24,6 +29,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpPost]
+        [Route("AddTutorial")]
         [Authorize(Roles = "Admin")]
         public ActionResult AddTutorial(AddTutorialBindingModel tutorial)
         {
@@ -35,7 +41,10 @@ namespace HentovWebsite.Web.Controllers
 
             return RedirectToAction("Index", "Manage");
         }
+
         [HttpGet]
+        [Route("Tutorial/{id}")]
+        [OutputCache(Duration = 30, Location = OutputCacheLocation.Client)]
         public ActionResult Tutorial(int id)
         {
             var tutorialInfo = this.service.GetTutorialById(id);
@@ -43,6 +52,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Route("Edit")]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(TutorialViewModel tutorial)
         {
@@ -50,6 +60,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpPost]
+        [Route("Edit")]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(EditTutorialBindingModel tutorial)
         {
@@ -64,6 +75,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpGet]
+        [Route("Delete")]
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(TutorialViewModel tutorial)
         {
@@ -71,6 +83,7 @@ namespace HentovWebsite.Web.Controllers
         }
 
         [HttpPost]
+        [Route("Delete")]
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {

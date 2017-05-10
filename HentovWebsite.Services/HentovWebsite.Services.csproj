@@ -35,10 +35,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\HentovWebsite.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\HentovWebsite.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,9 +57,11 @@
     <Compile Include="Services\Contracts\IAboutService.cs" />
     <Compile Include="Services\Contracts\IAccountService.cs" />
     <Compile Include="Services\Contracts\IBlogService.cs" />
+    <Compile Include="Services\Contracts\IManageService.cs" />
     <Compile Include="Services\Contracts\IPortfolioService.cs" />
     <Compile Include="Services\Contracts\IService.cs" />
     <Compile Include="Services\Contracts\ITutorialsService.cs" />
+    <Compile Include="Services\ManageService.cs" />
     <Compile Include="Services\PortfolioService.cs" />
     <Compile Include="Services\TutorialService.cs" />
   </ItemGroup>

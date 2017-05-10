@@ -11,6 +11,12 @@ namespace HentovWebsite.Models.Entity.Blog
     public class PostEntityModel
     {
         public int Id { get; set; }
+
+        public PostEntityModel()
+        {
+            this.UsersWhoLiked = new HashSet<WebsiteUser>();
+            this.Comments = new HashSet<CommentEntityModel>();
+        }
         [Required]
         [StringLength(Constraints.TitleMaxLen, MinimumLength = Constraints.TitleMinLen)]
         public string Title { get; set; }
@@ -24,8 +30,8 @@ namespace HentovWebsite.Models.Entity.Blog
 
         public DateTime? DateEdited { get; set; }
 
-        public virtual ICollection<WebsiteUser> UsersWhoLiked { get; set; }
+        public ICollection<WebsiteUser> UsersWhoLiked { get; set; }
 
-        public virtual List<CommentEntityModel> Comments { get; set; }
+        public ICollection<CommentEntityModel> Comments { get; set; }
     }
 }
