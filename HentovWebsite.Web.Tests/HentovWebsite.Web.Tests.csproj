@@ -121,6 +121,8 @@
     <Compile Include="Mocks\FakeWebsiteContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountServiceTest.cs" />
+    <Compile Include="Services\AboutServiceTest.cs" />
+    <Compile Include="Services\BlogServiceTest.cs" />
     <Compile Include="Web\Controllers\AboutControllerTest.cs" />
     <Compile Include="Web\Controllers\BlogControllerTest.cs" />
     <Compile Include="Web\Controllers\HomeControllerTest.cs" />

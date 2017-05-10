@@ -25,6 +25,12 @@ namespace HentovWebsite.Utility
         public const string DeleteProjectError = "Failed to delete project.";
 
         public const string DeleteTutorialError = "Failed to delete tutorial.";
+
+        public const string SendMailArgumentNull = "One or more of the value paramters for sending mail are null.";
+
+        public const string InvlidIdError = "The given id was invalid.";
+
+
         #endregion
 
         #region SmtpSettings

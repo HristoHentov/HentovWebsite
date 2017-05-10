@@ -2,6 +2,7 @@
 using System.Net.Mail;
 using HentovWebsite.Models.Binding.About;
 using HentovWebsite.Services.Services.Contracts;
+using HentovWebsite.Utility;
 
 namespace HentovWebsite.Services.Services
 {
@@ -11,6 +12,11 @@ namespace HentovWebsite.Services.Services
         {
             try
             {
+                if (host == null || mailCredential == null || passCredential == null ||
+                    recepient == null)
+                {
+                    return false;
+                }
                 SmtpClient smtpClient = new SmtpClient(host, port);
 
                 smtpClient.UseDefaultCredentials = false;

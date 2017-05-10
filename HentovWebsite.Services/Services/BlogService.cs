@@ -6,6 +6,7 @@ using HentovWebsite.Models.Binding.Blog;
 using HentovWebsite.Models.Entity.Blog;
 using HentovWebsite.Models.View.Blog;
 using HentovWebsite.Services.Services.Contracts;
+using HentovWebsite.Utility;
 
 namespace HentovWebsite.Services.Services
 {
@@ -41,13 +42,17 @@ namespace HentovWebsite.Services.Services
 
         public PostViewModel GetPostById(int id)
         {
+            if (id < 0)
+            {
+                throw new ArgumentException(Consts.InvlidIdError);
+            }
             var post = this.Context.Posts.FirstOrDefault(p => p.Id == id);
             return Mapper.Map<PostEntityModel, PostViewModel>(post);
         }
 
         public void UpdatePost(EditPostBindingModel model)
         {
-            var postToEdit = this.Context.Posts.Find(model.Id);
+            var postToEdit = this.Context.Posts.FirstOrDefault(m => m.Id == model.Id);
             postToEdit.Title = model.Title;
             postToEdit.Content = model.Content;
             postToEdit.DateEdited = DateTime.Now;
