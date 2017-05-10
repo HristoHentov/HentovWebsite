@@ -1,5 +1,4 @@
-﻿using System.Net.Mail;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using HentovWebsite.Models.Binding.About;
 using HentovWebsite.Services.Services.Contracts;
 using HentovWebsite.Utility;
@@ -23,7 +22,7 @@ namespace HentovWebsite.Web.Controllers
             return View("Index");
         }
 
-        //[HttpPost]
+        [HttpPost]
         [Route("SendMail")]
         public ActionResult SendMail(SendMailBindingModel model)
         {
@@ -43,7 +42,6 @@ namespace HentovWebsite.Web.Controllers
 
         [HttpGet]
         [Route("MessageSent")]
-        [ChildActionOnly]
         public ActionResult MessageSent()
         {
             return View();

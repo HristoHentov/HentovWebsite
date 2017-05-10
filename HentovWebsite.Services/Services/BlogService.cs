@@ -65,6 +65,12 @@ namespace HentovWebsite.Services.Services
             return Mapper.Map<EditPostBindingModel, PostViewModel>(model);
         }
 
+        public PostViewModel GetViewModel(AddPostBindingModel model)
+        {
+            return Mapper.Map<AddPostBindingModel, PostViewModel>(model);
+
+        }
+
         public void LikePost(int postId, string userId, bool authorized)
         {
             if (authorized)

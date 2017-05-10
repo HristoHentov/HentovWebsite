@@ -63,7 +63,7 @@ namespace HentovWebsite.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", "Manage");
+            return RedirectToAction("AddPost", "Admin", new {area = "Administration"});
         }
 
         [HttpGet]

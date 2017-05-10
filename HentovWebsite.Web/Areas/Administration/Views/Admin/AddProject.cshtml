@@ -19,18 +19,21 @@
                         @Html.LabelFor(x => x.Name)
                         <div>
                             @Html.EditorFor(x => x.Name)
+                            @Html.ValidationMessageFor(y => y.Name)
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Description)
                         <div>
                             @Html.EditorFor(x => x.Description)
+                            @Html.ValidationMessageFor(y => y.Description)
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.ProjectLink);
                         <div>
                             @Html.EditorFor(x => x.ProjectLink)
+                            @Html.ValidationMessageFor(y => y.ProjectLink)
                         </div>
                     </div>
                     <div class="form-group">

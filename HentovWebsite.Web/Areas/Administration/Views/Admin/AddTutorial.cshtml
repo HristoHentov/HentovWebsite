@@ -14,6 +14,7 @@
                             @Html.LabelFor(x => x.Title)
                             <div>
                                 @Html.EditorFor(x => x.Title)
+                                @Html.ValidationMessageFor(y => y.Title)
                             </div>
                         </div>
                     </div>
@@ -22,6 +23,7 @@
                             @Html.LabelFor(x => x.Description)
                             <div>
                                 @Html.EditorFor(x => x.Description)
+                                @Html.ValidationMessageFor(y => y.Description)
                             </div>
                         </div>
                     </div>
@@ -30,6 +32,7 @@
                             @Html.LabelFor(x => x.VideoUrl)
                             <div>
                                 @Html.EditorFor(x => x.VideoUrl)
+                                @Html.ValidationMessageFor(x => x.VideoUrl)
                             </div>
                         </div>
                     </div>

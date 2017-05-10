@@ -1,24 +1,29 @@
-﻿@model HentovWebsite.Models.View.Tutorials.TutorialViewModel
+﻿@using HentovWebsite.Utility
+@model HentovWebsite.Models.View.Tutorials.TutorialViewModel
 
 @{
-    ViewBag.Title = "Delete Project - Hentov.NET";
+    ViewBag.Title = "Delete Tutorial";
 }
 
 <div class="container">
+    <h2>Delete @Model.Title</h2>
+
     @using (Html.BeginForm())
     {
-        <h4>Sure you wanna do this?</h4>
+        <h4>@WebText.BlogDeleteHead</h4>
+
+        @Html.HiddenFor(model => model.Id)
         <div class="form-group">
             <div class="col-md-10">
-                @Html.ActionLink("No, it was an honest mistake", "Index");
+                @Html.ActionLink(WebText.BlogDeleteNo, "Index", null, new { @class = "btn btn-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-10">
-                @Html.HiddenFor(model => model.Id);
-                <input type="submit" value="Yeah, I know what I'm doing" class="btn btn-default" />
+                <input type="submit" value=@WebText.BlogDeleteYes class="btn btn-primary" />
             </div>
         </div>
     }
+
 </div>

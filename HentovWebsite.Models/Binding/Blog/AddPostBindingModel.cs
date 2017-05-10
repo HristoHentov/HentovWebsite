@@ -12,7 +12,7 @@ namespace HentovWebsite.Models.Binding.Blog
             this.Tags = new List<TagEntityModel>();
         }
         [Required]
-        [StringLength(maximumLength: Constraints.TitleMaxLen, MinimumLength = Constraints.TitleMinLen)]
+        [StringLength(maximumLength: Constraints.TitleMaxLen, MinimumLength = Constraints.TitleMinLen, ErrorMessage = "Hello")]
         public string Title { get; set; }
         [Required]
         [StringLength(maximumLength: Constraints.PostContentMaxLen, MinimumLength = Constraints.PostContentMinLen)]

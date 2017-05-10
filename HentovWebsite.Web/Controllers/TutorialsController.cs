@@ -39,7 +39,7 @@ namespace HentovWebsite.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index", "Manage");
+            return RedirectToAction("AddTutorial", "Admin", new {area = "Administration"});
         }
 
         [HttpGet]

@@ -16,6 +16,7 @@ namespace HentovWebsite.Services.Services.Contracts
         void DeletePost(int postId);
 
         PostViewModel GetViewModel(EditPostBindingModel model);
+        PostViewModel GetViewModel(AddPostBindingModel model);
 
         void LikePost(int id, string userId, bool authorized);
 

@@ -52,6 +52,8 @@ namespace HentovWebsite.Web
 
                 cfg.CreateMap<EditPostBindingModel, PostViewModel>();
 
+                cfg.CreateMap<AddPostBindingModel, PostViewModel>();
+
                 cfg.CreateMap<EditProjectBindingModel, ProjectViewModel>();
 
                 cfg.CreateMap<EditTutorialBindingModel, TutorialViewModel>();

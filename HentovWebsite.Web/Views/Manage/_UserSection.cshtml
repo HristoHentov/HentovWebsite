@@ -6,7 +6,7 @@
         <h1 class="panel-heading">Posts you've liked</h1>
         foreach (var likedPost in Model.User.LikedPosts)
         {
-            @Html.ActionLink(likedPost.Title, "Post", "Blog", new { id = likedPost.Id }, new { @class = "panel-body" })
+            @Html.ActionLink(likedPost.Title, "Post", "Blog", new { id = likedPost.Id }, new { @class = "panel-body h4" })
         }
     }
     else

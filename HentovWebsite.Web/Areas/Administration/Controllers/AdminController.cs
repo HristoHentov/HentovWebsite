@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using HentovWebsite.Models.View.Blog;
 
 namespace HentovWebsite.Web.Areas.Administration.Controllers
 {

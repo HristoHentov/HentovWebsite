@@ -21,7 +21,7 @@
                         <div class="title">
                             @tutorial.Title
                         </div>
-                        <div class="desc">@tutorial.Description</div>
+                        <div class="desc">@(tutorial.Description.Length > 35 ? tutorial.Description.Substring(0, 35) + "..." : tutorial.Description)</div>
                     </div>
                     @if (User.IsInRole(UserRoles.Admin.ToString()))
                     {
