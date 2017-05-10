@@ -18,7 +18,7 @@
         <div class="row">
             @foreach (var project in Model)
             {
-                <div class="col-md-3 portfolio-item">
+                <div class="col-md-6 portfolio-item">
                     <a href="@($"#{project.Id}")" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
@@ -27,8 +27,8 @@
                         </div>
                         <img src="/Content/img/@project.Thumbnail" class="img-responsive" alt="@project.Name">
                     </a>
-                    <h3>@project.Name</h3>
-                    <p>@project.Description</p>
+                    <h3 class ="text-center">@project.Name</h3>
+                    <p class="text-center">@project.Description</p>
                 </div>
             }
         </div>

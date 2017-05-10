@@ -1,4 +1,5 @@
-﻿@model HentovWebsite.Models.View.Blog.PostViewModel
+﻿@using HentovWebsite.Utility
+@model HentovWebsite.Models.View.Blog.PostViewModel
 
 @{
     ViewBag.Title = "Post";
@@ -19,5 +20,5 @@
 </div>
 
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-submit" })
+    @Html.ActionLink(@WebText.BlogBackTo, "Index", null, new { @class = "btn btn-submit" })
 </p>

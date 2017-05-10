@@ -5,6 +5,7 @@ namespace HentovWebsite.Web.Controllers
     [RoutePrefix("Home")]
     public class HomeController : Controller
     {
+        [Route("~/")]
         [Route("Index")]
         public ActionResult Index()
         {

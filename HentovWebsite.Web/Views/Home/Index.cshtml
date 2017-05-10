@@ -1,4 +1,5 @@
-﻿@using HentovWebsite.Web.Helpers
+﻿@using HentovWebsite.Utility
+@using HentovWebsite.Web.Helpers
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_HeaderLayout.cshtml";
@@ -7,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="cta-info text-center">
-                    <h3><span class="dec-tec">“</span>Insert generic wise quote from a deep-sounding guy here.<span class="dec-tec">”</span> - Some Wise Guy</h3>
+                    <h3><span class="dec-tec">“</span>@WebText.HomeQuoteBody<span class="dec-tec">”</span>@WebText.HomeQuoteAuth</h3>
                 </div>
             </div>
         </div>
@@ -20,16 +21,16 @@
                     <div class="section-title">
                         <h2 class="head-title">Services</h2>
                         <hr class="botm-line">
-                        <p class="sec-para">I do quite a lot of stuff, so here is a small list that highlights the more important ones :)</p>
+                        <p class="sec-para">@WebText.HomeDescriptionHeading</p>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    @Html.ServiceDescription("fa fa-paint-brush", "CG Art", "Althought not my main speciality I do quite a lot of 2D/Print design. Posters, frames, t-shirts...you name it.")
-                    @Html.ServiceDescription("fa fa-cogs", "CG Art", "Every now and then I try to puzzle around with difficult taks and try to look for elegant ways to solve them.")
-                    @Html.ServiceDescription("fa fa-mobile", "Mobile apps", "More often than not I give mobile apps a shot. I'm mainly interested in time-management apps as these are great time-savers.")
-                    @Html.ServiceDescription("fa fa-desktop", "Web&Desktop Development", "Mainly, I develop apps for desktop/web use. I do most of them in C++/C#. This is my main development area of focus.")
-                    @Html.ServiceDescription("fa fa-lightbulb-o", "Creative Ideas", "I always try to come up with new and creative approaches when designing stuff.I often mix stuff that doesn't make sense.")
-                    @Html.ServiceDescription("fa fa-clock-o", "On-point deadlines", "If there is something I absolutely guarntee - its deadlines. I ALWAYS make sure that I follow the deadlines I set.")
+                    @Html.ServiceDescription("fa fa-paint-brush", WebText.HomeHeadingCgArt, WebText.HomeDescriptionCgArt)
+                    @Html.ServiceDescription("fa fa-cogs", WebText.HomeHeadingApproach, WebText.HomeDescriptionApproach)
+                    @Html.ServiceDescription("fa fa-mobile", WebText.HomeHeadingMobile, WebText.HomeDescriptionMobile)
+                    @Html.ServiceDescription("fa fa-desktop", WebText.HomeHeadingDesktop, WebText.HomeDescriptionDesktop)
+                    @Html.ServiceDescription("fa fa-lightbulb-o", WebText.HomeHeadingIdeas, WebText.HomeDescriptionIdeas)
+                    @Html.ServiceDescription("fa fa-clock-o", WebText.HomeHeadingDeadlines, WebText.HomeDescriptionDeadlines)
                 </div>
             </div>
         </div>
@@ -40,8 +41,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="cta-txt">
-                        <h3>Want to get in touch?</h3>
-                        <p>Business? Partnership? Questions. I try to respond as quickly as I can, so feel free to contact me with whatever you have in mind.</p>
+                        <h3>@WebText.HomeInTouch</h3>
+                        <p>@WebText.HomeContactNfo</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
@@ -62,7 +63,7 @@
                             </a>
                         </div>
                         <hr class="botm-line">
-                        <p class="sec-para">If you want to know more about me, you can check out some of the project I've worked on. Head to the portfoli page for that.</p>
+                        <p class="sec-para">@WebText.HomePortfolioNfo</p>
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-12">

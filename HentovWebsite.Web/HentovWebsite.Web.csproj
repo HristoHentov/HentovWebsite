@@ -307,8 +307,6 @@
     <Content Include="Views\Portfolio\Design.cshtml" />
     <Content Include="Views\Manage\_AdminSection.cshtml" />
     <Content Include="Views\Manage\_UserSection.cshtml" />
-    <Content Include="Views\Error\RegistrationError.cshtml" />
-    <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Test\EditTest.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />

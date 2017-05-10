@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace HentovWebsite.Web.Helpers
 {
@@ -24,6 +25,17 @@ namespace HentovWebsite.Web.Helpers
                           $"<p class=\"txt-para\">{description}</p>" +
                           "</div></div>";
             return new MvcHtmlString(body);
+        }
+
+        public static MvcHtmlString Image(this HtmlHelper helper, string url, string altText,string width, string height, object htmlAttributes)
+        {
+            TagBuilder builder = new TagBuilder("img");
+            builder.Attributes.Add("src", url);
+            builder.Attributes.Add("alt", altText);
+            builder.Attributes.Add("width", width);
+            builder.Attributes.Add("height", height);
+            builder.MergeAttributes(new RouteValueDictionary(htmlAttributes));
+            return MvcHtmlString.Create(builder.ToString(TagRenderMode.Normal));
         }
     }
 }
