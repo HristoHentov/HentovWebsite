@@ -113,7 +113,15 @@ namespace HentovWebsite.Web.Tests.Services
             Assert.AreEqual(post.Title, "Edited Title");
         }
 
-
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void UpdatePost_ThrowsExceptionOnInvalidId()
+        {
+            this.service.UpdatePost(new EditPostBindingModel()
+            {
+                Id = -2,
+            });
+        }
 
         private void InitializeMappings()
         {

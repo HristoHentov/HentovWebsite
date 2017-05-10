@@ -52,6 +52,9 @@ namespace HentovWebsite.Services.Services
 
         public void UpdatePost(EditPostBindingModel model)
         {
+            if (model.Id < 0)
+                throw new ArgumentException(Consts.InvlidIdError);
+
             var postToEdit = this.Context.Posts.FirstOrDefault(m => m.Id == model.Id);
             postToEdit.Title = model.Title;
             postToEdit.Content = model.Content;
